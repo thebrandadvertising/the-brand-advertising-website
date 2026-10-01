@@ -7,7 +7,7 @@ import campaignOne from "../assets/contact/cab-branding-contact.webp";
 import campaignTwo from "../assets/contact/auto-hood-branding-contact.webp";
 
 const CONTACT_ENDPOINT = "https://formsubmit.co/ajax/admin@thebrandadvertising.in";
-const FORM_SOURCE_URL = "https://thebrandadvertising.github.io/the-brand-advertising-website/#/contact";
+const FORM_SOURCE_URL = "https://thebrandadvertising.com/#/contact";
 const EMPTY_FORM = {
   name: "",
   email: "",

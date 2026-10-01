@@ -4,7 +4,7 @@ Official marketing website for **The Brand Advertising (TBA)**, an India-focused
 
 ## Live website
 
-[https://thebrandadvertising.github.io/the-brand-advertising-website/](https://thebrandadvertising.github.io/the-brand-advertising-website/)
+[https://thebrandadvertising.com/](https://thebrandadvertising.com/)
 
 The site currently uses hash-based routes so it works reliably on GitHub Pages.
 
