@@ -32,6 +32,8 @@ jobs:
         run: npm ci
 
       - name: Build website
+        env:
+          VITE_BASE_PATH: /the-brand-advertising-website/
         run: npm run build
 
       - name: Configure GitHub Pages
