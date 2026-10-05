@@ -101,7 +101,7 @@ const services = [
 
 export default function Services() {
   return (
-    <div>
+    <main id="main-content">
       <RelaxingHero eyebrow="Our services" title="Every service, one goal: visibility that moves." video={`${import.meta.env.BASE_URL}services-background.mp4`} />
 
       <section className="bg-cream">
@@ -124,6 +124,8 @@ export default function Services() {
                 <img
                   src={serviceImages[s.title]}
                   alt={`${s.title} service by The Brand Advertising`}
+                  width="1600"
+                  height="1000"
                   loading="lazy"
                   decoding="async"
                   className="w-full h-full object-cover"
@@ -172,6 +174,6 @@ export default function Services() {
           </Link>
         </div>
       </section>
-    </div>
+    </main>
   );
 }

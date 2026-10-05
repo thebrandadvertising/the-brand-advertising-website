@@ -26,6 +26,8 @@ export default function Navbar() {
   }, [location.pathname]);
 
   return (
+    <>
+    <a href="#main-content" className="skip-link">Skip to main content</a>
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
@@ -35,7 +37,7 @@ export default function Navbar() {
     >
       <nav className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         <Link to="/" className="tba-brand-link" onClick={() => setOpen(false)} aria-label="The Brand Advertising home">
-          <img src={`${import.meta.env.BASE_URL}tba-logo.jpg`} alt="TBA — The Brand Advertising" className="tba-nav-logo" />
+          <img src={`${import.meta.env.BASE_URL}tba-logo.jpg`} alt="TBA — The Brand Advertising" width="1254" height="1254" className="tba-nav-logo" />
         </Link>
 
         <div className="hidden md:flex items-center gap-10">
@@ -76,13 +78,15 @@ export default function Navbar() {
           className="md:hidden text-white"
           onClick={() => setOpen((o) => !o)}
           aria-label="Toggle menu"
+          aria-expanded={open}
+          aria-controls="mobile-navigation"
         >
           {open ? <X size={26} /> : <Menu size={26} />}
         </button>
       </nav>
 
       {open && (
-        <div className="md:hidden bg-black/95 backdrop-blur-xl mt-4 border-t border-white/10">
+        <div id="mobile-navigation" className="md:hidden bg-black/95 backdrop-blur-xl mt-4 border-t border-white/10">
           <div className="flex flex-col px-6 py-6 gap-5">
             {links.map((l) => (
               <NavLink
@@ -101,6 +105,7 @@ export default function Navbar() {
         </div>
       )}
     </header>
+    </>
   );
 }
 

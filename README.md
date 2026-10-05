@@ -92,7 +92,7 @@ Large original image files were converted to optimized WebP versions. Only asset
 
 Hostinger is connected directly to the GitHub repository. Every push to the `main` branch is built and deployed by Hostinger automatically.
 
-The included `npm run build` command creates the production files in `dist/` and generates crawlable HTML metadata for the important service and city pages.
+The included `npm run build` command creates the production files in `dist/` and statically renders the complete page content, metadata and structured data for every canonical route. The browser then hydrates that HTML to add navigation, animation and form behavior.
 
 ## Confirmed business details
 

@@ -33,7 +33,7 @@ const ajmerAlt = [
   "IndianOil representatives and campaign team at the Ajmer activation launch",
 ];
 
-function CampaignGallery({ images, altTexts }) {
+function CampaignGallery({ images, altTexts, dimensions }) {
   return (
     <div className="campaign-gallery">
       {images.map((image, index) => (
@@ -45,7 +45,7 @@ function CampaignGallery({ images, altTexts }) {
           transition={{ duration: 0.75, delay: index * 0.1, ease }}
           className={`campaign-photo campaign-photo-${index + 1}`}
         >
-          <img src={image} alt={altTexts[index]} loading="lazy" decoding="async" />
+          <img src={image} alt={altTexts[index]} width={dimensions[index][0]} height={dimensions[index][1]} loading="lazy" decoding="async" />
         </motion.figure>
       ))}
     </div>
@@ -54,7 +54,7 @@ function CampaignGallery({ images, altTexts }) {
 
 export default function Campaigns() {
   return (
-    <main className="campaign-page">
+    <main id="main-content" className="campaign-page">
       <Seo
         title="Advertising Campaigns & Brand Activations | TBA India"
         description="Explore outdoor advertising, vehicle branding and on-ground campaign work delivered by The Brand Advertising across India."
@@ -124,7 +124,7 @@ export default function Campaigns() {
               about the products presented at the activation.
             </p>
           </div>
-          <CampaignGallery images={[jodhpur1, jodhpur2, jodhpur3]} altTexts={jodhpurAlt} />
+          <CampaignGallery images={[jodhpur1, jodhpur2, jodhpur3]} altTexts={jodhpurAlt} dimensions={[[1280, 960], [1600, 723], [575, 1280]]} />
         </div>
       </article>
 
@@ -151,7 +151,7 @@ export default function Campaigns() {
               information and take part in an interactive prize-wheel activity.
             </p>
           </div>
-          <CampaignGallery images={[ajmer1, ajmer2, ajmer3]} altTexts={ajmerAlt} />
+          <CampaignGallery images={[ajmer1, ajmer2, ajmer3]} altTexts={ajmerAlt} dimensions={[[1280, 832], [1263, 591], [1380, 555]]} />
         </div>
       </article>
 

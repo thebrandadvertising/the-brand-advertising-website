@@ -11,7 +11,7 @@ const regions = [
 export default function Coverage() {
   const description = "The Brand Advertising executes auto hood branding, cab branding, retail branding and outdoor campaigns across major cities and regional markets in India.";
   return (
-    <main>
+    <main id="main-content">
       <Seo title="Pan-India Advertising Campaign Coverage | The Brand Advertising" description={description} path="/pan-india-coverage" pageType="CollectionPage" />
       <section className="pt-40 pb-20 bg-ink text-white text-center">
         <div className="max-w-4xl mx-auto px-6">

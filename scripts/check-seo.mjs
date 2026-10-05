@@ -22,20 +22,41 @@ for (const url of urls) {
   }
 
   const html = await readFile(file, "utf8");
+  const root = value(html, /<div id="root">([\s\S]*)<\/div>\s*<\/body>/);
   const title = value(html, /<title>(.*?)<\/title>/s);
   const description = value(html, /<meta name="description" content="(.*?)"\s*\/>/s);
   const canonical = value(html, /<link rel="canonical" href="(.*?)"\s*\/>/s);
 
   if (!title) errors.push(`${url}: missing title`);
   if (!description) errors.push(`${url}: missing meta description`);
+  if (!root) errors.push(`${url}: missing statically rendered root content`);
+  if (root) {
+    const visibleText = root
+      .replace(/<script[\s\S]*?<\/script>/g, " ")
+      .replace(/<style[\s\S]*?<\/style>/g, " ")
+      .replace(/<[^>]+>/g, " ")
+      .replace(/&[^;]+;/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+    if (visibleText.split(/\s+/).length < 50) errors.push(`${url}: initial HTML contains too little visible text`);
+    if (count(root, /<h1\b/g) !== 1) errors.push(`${url}: initial HTML must contain exactly one H1`);
+    if (!/<main\b[^>]*id="main-content"/.test(root)) errors.push(`${url}: missing main content landmark`);
+    if (count(root, /<a\b[^>]*href="\//g) < 5) errors.push(`${url}: too few crawlable internal links in initial HTML`);
+    if (root.includes("data-prerender-schema")) errors.push(`${url}: temporary prerender schema marker was not removed`);
+    for (const image of root.match(/<img\b[^>]*>/g) || []) {
+      if (!/\bwidth="\d+"/.test(image) || !/\bheight="\d+"/.test(image)) {
+        errors.push(`${url}: image missing intrinsic width or height (${image.slice(0, 100)}...)`);
+      }
+    }
+  }
   if (canonical !== url) errors.push(`${url}: canonical is ${canonical || "missing"}`);
   if (count(html, /<link rel="canonical"/g) !== 1) errors.push(`${url}: canonical count is not 1`);
   if (/name="robots"[^>]*noindex/i.test(html)) errors.push(`${url}: unexpectedly marked noindex`);
 
-  for (const property of ["og:title", "og:description", "og:url", "og:image"]) {
+  for (const property of ["og:title", "og:description", "og:url", "og:image", "og:image:width", "og:image:height", "og:image:alt"]) {
     if (!html.includes(`property="${property}"`)) errors.push(`${url}: missing ${property}`);
   }
-  for (const name of ["twitter:card", "twitter:title", "twitter:description", "twitter:image", "viewport"]) {
+  for (const name of ["twitter:card", "twitter:title", "twitter:description", "twitter:image", "twitter:image:alt", "viewport", "robots"]) {
     if (!html.includes(`name="${name}"`)) errors.push(`${url}: missing ${name}`);
   }
 
@@ -46,6 +67,9 @@ for (const url of urls) {
   let hasOrganization = false;
   let hasWebSite = false;
   let hasCampaignItems = false;
+  let hasService = false;
+  let hasBreadcrumbs = false;
+  let hasFaq = false;
   for (const block of schemaBlocks) {
     try {
       const parsed = JSON.parse(block[1]);
@@ -53,6 +77,9 @@ for (const url of urls) {
       hasOrganization ||= nodes.some((node) => node["@type"] === "Organization");
       hasWebSite ||= nodes.some((node) => node["@type"] === "WebSite");
       hasCampaignItems ||= nodes.some((node) => node["@type"] === "ItemList" && node.name === "The Brand Advertising campaign work");
+      hasService ||= nodes.some((node) => node["@type"] === "Service");
+      hasBreadcrumbs ||= nodes.some((node) => node["@type"] === "BreadcrumbList");
+      hasFaq ||= nodes.some((node) => node["@type"] === "FAQPage");
       pageSchemas.push(...nodes.filter((node) => {
         const types = Array.isArray(node["@type"]) ? node["@type"] : [node["@type"]];
         return types.includes("WebPage");
@@ -67,6 +94,9 @@ for (const url of urls) {
   if (!hasOrganization) errors.push(`${url}: Organization schema missing`);
   if (!hasWebSite) errors.push(`${url}: WebSite schema missing`);
   if (path === "/campaigns" && !hasCampaignItems) errors.push(`${url}: campaign ItemList schema missing`);
+  if (path.startsWith("/services/") && (!hasService || !hasBreadcrumbs || !hasFaq)) {
+    errors.push(`${url}: service, breadcrumb or FAQ schema missing`);
+  }
 
   if (title) {
     if (titles.has(title)) errors.push(`${url}: duplicate title also used by ${titles.get(title)}`);

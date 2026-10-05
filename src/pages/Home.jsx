@@ -4,7 +4,7 @@ import { ArrowRight, Leaf, Route, Sparkles, Wind } from "lucide-react";
 import BrandOrbit from "../components/BrandOrbit";
 import useVideoPlayback from "../hooks/useVideoPlayback";
 
-import forestPoster from "../assets/tba/auto-brand-city.webp";
+import forestPoster from "../assets/services/auto-hood-branding.webp";
 
 const ease = [0.22, 1, 0.36, 1];
 
@@ -49,17 +49,16 @@ export default function Home() {
   const videoRef = useVideoPlayback();
 
   return (
-    <main className="nature-home">
+    <main id="main-content" className="nature-home">
       <section className="nature-hero">
-        <img className="nature-video nature-video-poster" src={forestPoster} alt="" aria-hidden="true" decoding="async" fetchPriority="high" />
+        <img className="nature-video nature-video-poster" src={forestPoster} alt="" aria-hidden="true" width="1600" height="1000" decoding="async" fetchPriority="high" />
         <video
           ref={videoRef}
           className="nature-video"
-          autoPlay
           muted
           loop
           playsInline
-          preload="metadata"
+          preload="none"
           disablePictureInPicture
           poster={forestPoster}
           aria-hidden="true"
@@ -237,7 +236,7 @@ export default function Home() {
           transition={{ duration: 1, ease }}
           className="nature-shell nature-cta-inner"
         >
-          <img src={`${import.meta.env.BASE_URL}tba-logo.jpg`} alt="TBA — The Brand Advertising" className="tba-cta-logo" loading="lazy" decoding="async" />
+          <img src={`${import.meta.env.BASE_URL}tba-logo.jpg`} alt="TBA — The Brand Advertising" width="1254" height="1254" className="tba-cta-logo" loading="lazy" decoding="async" />
           <p>Have a story worth moving?</p>
           <h2>Let&rsquo;s give it<br /><em>somewhere to go.</em></h2>
           <a

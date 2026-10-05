@@ -8,8 +8,10 @@ export default function useVideoPlayback() {
     if (!video) return undefined;
 
     let visible = true;
+    const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const connection = navigator.connection;
     const syncPlayback = () => {
-      if (document.hidden || !visible) {
+      if (document.hidden || !visible || motionPreference.matches || connection?.saveData) {
         video.pause();
         return;
       }
@@ -26,11 +28,15 @@ export default function useVideoPlayback() {
 
     observer.observe(video);
     document.addEventListener("visibilitychange", syncPlayback);
+    motionPreference.addEventListener("change", syncPlayback);
+    connection?.addEventListener?.("change", syncPlayback);
     syncPlayback();
 
     return () => {
       observer.disconnect();
       document.removeEventListener("visibilitychange", syncPlayback);
+      motionPreference.removeEventListener("change", syncPlayback);
+      connection?.removeEventListener?.("change", syncPlayback);
     };
   }, []);
 

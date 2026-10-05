@@ -104,7 +104,7 @@ export default function Contact() {
   };
 
   return (
-    <div>
+    <main id="main-content">
       <RelaxingHero
         eyebrow="Contact TBA"
         title="Let’s get your brand moving."
@@ -141,13 +141,15 @@ export default function Contact() {
               <form onSubmit={handleSubmit} className="space-y-6" aria-busy={submitting}>
                 <div className="grid sm:grid-cols-2 gap-6">
                   <div>
-                    <label className="text-xs uppercase tracking-wider text-charcoal-soft/60 mb-2 block">
+                    <label htmlFor="contact-name" className="text-xs uppercase tracking-wider text-charcoal-soft/60 mb-2 block">
                       Your Name
                     </label>
                     <input
+                      id="contact-name"
                       ref={nameInputRef}
                       required
                       name="name"
+                      autoComplete="name"
                       value={form.name}
                       onChange={handleChange}
                       className="w-full border-b border-charcoal/15 focus:border-brand-red outline-none py-2.5 bg-transparent transition-colors"
@@ -155,12 +157,15 @@ export default function Contact() {
                     />
                   </div>
                   <div>
-                    <label className="text-xs uppercase tracking-wider text-charcoal-soft/60 mb-2 block">
+                    <label htmlFor="contact-phone" className="text-xs uppercase tracking-wider text-charcoal-soft/60 mb-2 block">
                       Phone
                     </label>
                     <input
+                      id="contact-phone"
                       required
+                      type="tel"
                       name="phone"
+                      autoComplete="tel"
                       value={form.phone}
                       onChange={handleChange}
                       className="w-full border-b border-charcoal/15 focus:border-brand-red outline-none py-2.5 bg-transparent transition-colors"
@@ -170,13 +175,15 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <label className="text-xs uppercase tracking-wider text-charcoal-soft/60 mb-2 block">
+                  <label htmlFor="contact-email" className="text-xs uppercase tracking-wider text-charcoal-soft/60 mb-2 block">
                     Email
                   </label>
                   <input
+                    id="contact-email"
                     required
                     type="email"
                     name="email"
+                    autoComplete="email"
                     value={form.email}
                     onChange={handleChange}
                     className="w-full border-b border-charcoal/15 focus:border-brand-red outline-none py-2.5 bg-transparent transition-colors"
@@ -185,10 +192,11 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <label className="text-xs uppercase tracking-wider text-charcoal-soft/60 mb-2 block">
+                  <label htmlFor="contact-service" className="text-xs uppercase tracking-wider text-charcoal-soft/60 mb-2 block">
                     Service Interested In
                   </label>
                   <select
+                    id="contact-service"
                     name="service"
                     value={form.service}
                     onChange={handleChange}
@@ -215,10 +223,11 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <label className="text-xs uppercase tracking-wider text-charcoal-soft/60 mb-2 block">
+                  <label htmlFor="contact-message" className="text-xs uppercase tracking-wider text-charcoal-soft/60 mb-2 block">
                     Message
                   </label>
                   <textarea
+                    id="contact-message"
                     required
                     name="message"
                     value={form.message}
@@ -289,12 +298,12 @@ export default function Contact() {
             </div>
 
             <div className="grid grid-cols-2 gap-4">
-              <img src={campaignOne} alt="Cab branding moving through a city business district" className="rounded-2xl aspect-square object-cover" loading="lazy" decoding="async" />
-              <img src={campaignTwo} alt="Auto hood branding moving through a local market" className="rounded-2xl aspect-square object-cover" loading="lazy" decoding="async" />
+              <img src={campaignOne} alt="Cab branding moving through a city business district" width="1024" height="1024" className="rounded-2xl aspect-square object-cover" loading="lazy" decoding="async" />
+              <img src={campaignTwo} alt="Auto hood branding moving through a local market" width="1024" height="1024" className="rounded-2xl aspect-square object-cover" loading="lazy" decoding="async" />
             </div>
           </motion.div>
         </div>
       </section>
-    </div>
+    </main>
   );
 }

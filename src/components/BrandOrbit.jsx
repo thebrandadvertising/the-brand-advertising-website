@@ -23,7 +23,7 @@ export default function BrandOrbit() {
             <div className="trusted-brands-group" key={group} aria-hidden={group === 1}>
               {brands.map((brand) => (
                 <div className="trusted-brand-card" key={`${group}-${brand.name}`}>
-                  <img src={`https://www.google.com/s2/favicons?domain=${brand.domain}&sz=256`} alt={group === 0 ? `${brand.name} logo` : ""} loading="lazy" decoding="async" />
+                  <img src={`https://www.google.com/s2/favicons?domain=${brand.domain}&sz=256`} alt={group === 0 ? `${brand.name} logo` : ""} width="256" height="256" loading="lazy" decoding="async" />
                   <strong>{brand.name}</strong>
                 </div>
               ))}

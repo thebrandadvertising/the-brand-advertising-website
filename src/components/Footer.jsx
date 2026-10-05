@@ -29,7 +29,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-12 mb-16">
         <div>
           <Link to="/" className="inline-flex mb-5" aria-label="The Brand Advertising home">
-            <img src={`${import.meta.env.BASE_URL}tba-logo.jpg`} alt="TBA — The Brand Advertising" className="tba-footer-logo" />
+            <img src={`${import.meta.env.BASE_URL}tba-logo.jpg`} alt="TBA — The Brand Advertising" width="1254" height="1254" className="tba-footer-logo" />
           </Link>
           <p className="text-sm leading-relaxed max-w-xs">
             Vehicle branding, retail visibility and brand activation designed

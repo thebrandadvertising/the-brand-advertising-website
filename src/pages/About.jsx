@@ -4,8 +4,8 @@ import { Target, Eye, ArrowUpRight } from "lucide-react";
 import SectionHeading from "../components/SectionHeading";
 import RelaxingHero from "../components/RelaxingHero";
 import dimcyAggarwal from "../assets/tba/dimcy-aggarwal-founder.webp";
-import campaignOne from "../assets/tba/auto-brand-city.webp";
-import campaignTwo from "../assets/tba/moves-with-city.webp";
+import campaignOne from "../assets/services/auto-hood-branding.webp";
+import campaignTwo from "../assets/services/cab-branding.webp";
 
 const process = [
   { step: "Discover", desc: "Understand the brand and campaign goals." },
@@ -18,7 +18,7 @@ const process = [
 
 export default function About() {
   return (
-    <div>
+    <main id="main-content">
       <RelaxingHero
         eyebrow="About TBA"
         title="Ideas should move with people."
@@ -47,7 +47,7 @@ export default function About() {
             transition={{ duration: 0.9 }}
             className="rounded-2xl overflow-hidden shadow-soft aspect-[4/5]"
           >
-            <img src={campaignOne} alt="TBA outdoor advertising campaign" className="w-full h-full object-cover" loading="lazy" decoding="async" />
+            <img src={campaignOne} alt="Auto hood branding campaign across a city market" width="1600" height="1000" className="w-full h-full object-cover" loading="lazy" decoding="async" />
           </motion.div>
         </div>
       </section>
@@ -66,6 +66,8 @@ export default function About() {
                 <img
                   src={dimcyAggarwal}
                   alt="Dimcy Aggarwal, Founder of The Brand Advertising"
+                  width="400"
+                  height="400"
                   loading="lazy"
                   decoding="async"
                   className="w-full h-full rounded-full object-cover object-top border-4 border-white"
@@ -184,9 +186,12 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeading eyebrow="Inside TBA" title="Ideas, craft and execution" align="center" />
           <div className="grid md:grid-cols-2 gap-6">
-            {[campaignOne, campaignTwo].map((image, index) => (
+            {[
+              { src: campaignOne, alt: "Auto hood branding fleet in a city market" },
+              { src: campaignTwo, alt: "Cab branding on an urban route" },
+            ].map((image, index) => (
               <motion.div
-                key={image}
+                key={image.src}
                 initial={{ opacity: 0, scale: 1.05 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
@@ -194,8 +199,10 @@ export default function About() {
                 className="rounded-2xl overflow-hidden aspect-[4/3] group"
               >
                 <img
-                  src={image}
-                  alt="The Brand Advertising team and workspace"
+                  src={image.src}
+                  alt={image.alt}
+                  width="1600"
+                  height="1000"
                   loading="lazy"
                   decoding="async"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -219,6 +226,6 @@ export default function About() {
           </Link>
         </div>
       </section>
-    </div>
+    </main>
   );
 }

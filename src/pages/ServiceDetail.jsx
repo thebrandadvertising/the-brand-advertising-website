@@ -120,7 +120,7 @@ export default function ServiceDetail() {
   };
 
   return (
-    <main>
+    <main id="main-content">
       <Seo title={service.title} description={service.description} path={path} schema={schema} pageType="ItemPage" />
       <section className="pt-40 pb-20 bg-ink text-white">
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
@@ -135,7 +135,7 @@ export default function ServiceDetail() {
               Request a Campaign Plan <ArrowUpRight size={17} />
             </Link>
           </div>
-          <img src={service.image} alt={`${service.name} campaign by The Brand Advertising in India`} className="rounded-2xl w-full aspect-[16/10] object-cover" />
+          <img src={service.image} alt={`${service.name} campaign by The Brand Advertising in India`} width="1600" height="1000" className="rounded-2xl w-full aspect-[16/10] object-cover" />
         </div>
       </section>
 

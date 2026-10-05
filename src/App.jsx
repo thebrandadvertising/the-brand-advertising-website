@@ -23,19 +23,20 @@ const pageSeo = {
 };
 
 export default function App() {
-  const [loading, setLoading] = useState(
-    () => !window.sessionStorage.getItem("tba-intro-seen")
-  );
+  const [loading, setLoading] = useState(false);
   const location = useLocation();
   const normalizedPath = location.pathname.replace(/\/+$/, "") || "/";
   const seo = pageSeo[normalizedPath];
 
   useEffect(() => {
-    if (!loading) return undefined;
-    window.sessionStorage.setItem("tba-intro-seen", "true");
-    const t = setTimeout(() => setLoading(false), 950);
+    if (window.sessionStorage.getItem("tba-intro-seen")) return undefined;
+    setLoading(true);
+    const t = setTimeout(() => {
+      setLoading(false);
+      window.sessionStorage.setItem("tba-intro-seen", "true");
+    }, 950);
     return () => clearTimeout(t);
-  }, [loading]);
+  }, []);
 
   return (
     <div className="min-h-screen bg-cream">

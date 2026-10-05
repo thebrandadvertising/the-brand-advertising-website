@@ -1,20 +1,19 @@
 import { motion } from "framer-motion";
 import useVideoPlayback from "../hooks/useVideoPlayback";
-import tbaPoster from "../assets/tba/traffic-branding.webp";
+import tbaPoster from "../assets/services/auto-hood-branding.webp";
 
 export default function RelaxingHero({ eyebrow, title, video }) {
   const videoRef = useVideoPlayback();
 
   return (
     <section className="page-film-hero">
-      <img className="page-film-poster" src={tbaPoster} alt="" aria-hidden="true" decoding="async" fetchPriority="high" />
+      <img className="page-film-poster" src={tbaPoster} alt="" aria-hidden="true" width="1600" height="1000" decoding="async" fetchPriority="high" />
       <video
         ref={videoRef}
-        autoPlay
         muted
         loop
         playsInline
-        preload="metadata"
+        preload="none"
         disablePictureInPicture
         poster={tbaPoster}
         aria-hidden="true"
