@@ -1,5 +1,6 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
+import { campaignSchema } from "../src/data/campaignSeo.js";
 
 const siteUrl = "https://thebrandadvertising.com";
 const basePages = [
@@ -16,7 +17,7 @@ const basePages = [
 ];
 
 const template = await readFile("dist/index.html", "utf8");
-const schemaPattern = /<script type="application\/ld\+json">([\s\S]*?)<\/script>/;
+const schemaPattern = /<script\b[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/;
 const homeSchema = JSON.parse(template.match(schemaPattern)?.[1] || "{}");
 const sharedSchema = (homeSchema["@graph"] || []).filter((node) =>
   ["Organization", "WebSite"].includes(node["@type"]),
@@ -38,6 +39,7 @@ for (const [path, title, description, pageType] of basePages) {
         about: { "@id": `${siteUrl}/#organization` },
         inLanguage: "en-IN",
       },
+      ...(path === "/campaigns" ? campaignSchema["@graph"] : []),
     ],
   });
   const html = template
@@ -49,7 +51,7 @@ for (const [path, title, description, pageType] of basePages) {
     .replace(/<meta property="og:url" content=".*?"\s*\/>/, `<meta property="og:url" content="${url}" />`)
     .replace(/<meta name="twitter:title" content=".*?"\s*\/>/, `<meta name="twitter:title" content="${title}" />`)
     .replace(/<meta name="twitter:description" content=".*?"\s*\/>/, `<meta name="twitter:description" content="${description}" />`)
-    .replace(schemaPattern, `<script type="application/ld+json">${pageSchema}</script>`);
+    .replace(schemaPattern, `<script type="application/ld+json" id="site-schema">${pageSchema}</script>`);
   const output = join("dist", `${path.slice(1)}.html`);
   await mkdir(dirname(output), { recursive: true });
   await writeFile(output, html);

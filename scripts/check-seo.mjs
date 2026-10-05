@@ -39,13 +39,20 @@ for (const url of urls) {
     if (!html.includes(`name="${name}"`)) errors.push(`${url}: missing ${name}`);
   }
 
-  const schemaBlocks = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)];
+  const schemaBlocks = [...html.matchAll(/<script\b[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)];
   if (!schemaBlocks.length) errors.push(`${url}: missing structured data`);
+  if (schemaBlocks.length !== 1) errors.push(`${url}: expected one authoritative JSON-LD graph, found ${schemaBlocks.length}`);
   const pageSchemas = [];
+  let hasOrganization = false;
+  let hasWebSite = false;
+  let hasCampaignItems = false;
   for (const block of schemaBlocks) {
     try {
       const parsed = JSON.parse(block[1]);
       const nodes = parsed["@graph"] || [parsed];
+      hasOrganization ||= nodes.some((node) => node["@type"] === "Organization");
+      hasWebSite ||= nodes.some((node) => node["@type"] === "WebSite");
+      hasCampaignItems ||= nodes.some((node) => node["@type"] === "ItemList" && node.name === "The Brand Advertising campaign work");
       pageSchemas.push(...nodes.filter((node) => {
         const types = Array.isArray(node["@type"]) ? node["@type"] : [node["@type"]];
         return types.includes("WebPage");
@@ -57,6 +64,9 @@ for (const url of urls) {
   if (!pageSchemas.length) errors.push(`${url}: missing WebPage schema`);
   if (pageSchemas.length > 1) errors.push(`${url}: multiple WebPage schema nodes found`);
   if (pageSchemas[0]?.url !== url) errors.push(`${url}: WebPage schema URL is ${pageSchemas[0]?.url || "missing"}`);
+  if (!hasOrganization) errors.push(`${url}: Organization schema missing`);
+  if (!hasWebSite) errors.push(`${url}: WebSite schema missing`);
+  if (path === "/campaigns" && !hasCampaignItems) errors.push(`${url}: campaign ItemList schema missing`);
 
   if (title) {
     if (titles.has(title)) errors.push(`${url}: duplicate title also used by ${titles.get(title)}`);

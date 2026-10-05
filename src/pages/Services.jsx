@@ -49,53 +49,53 @@ const services = [
   },
   {
     title: "Cab Branding",
-    desc: "Premium cab wraps that put your brand in front of commuters across the city, all day long.",
-    benefits: ["High-footfall commercial routes", "Clean, professional finish", "City and inter-city coverage"],
+    desc: "Full and partial cab wraps that carry approved campaign artwork across selected urban routes.",
+    benefits: ["Full and partial wrap formats", "Creative adaptation for cab surfaces", "Fleet and market planning"],
   },
   {
     title: "Bus Branding",
-    desc: "Full and partial bus wraps for sustained, city-wide visibility on daily commuter routes.",
-    benefits: ["Long dwell-time exposure", "High recall on fixed routes", "Interior and exterior options"],
+    desc: "Full and partial bus branding for campaigns planned around selected routes and markets.",
+    benefits: ["Full and partial formats", "Interior and exterior options", "Route-based campaign planning"],
   },
   {
     title: "Van Activation",
     desc: "Mobile vans built for live product demos, sampling and on-ground brand activation.",
-    benefits: ["Combines branding with activation", "Goes where the audience is", "Flexible route planning"],
+    benefits: ["Mobile activation setup", "Product demonstration and sampling", "Flexible route planning"],
   },
   {
     title: "Retail Branding",
-    desc: "In-store and storefront branding that reinforces recall at the exact point of purchase.",
-    benefits: ["Point-of-sale visibility", "Consistent in-store experience", "Custom fixtures and signage"],
+    desc: "In-store and storefront branding for campaign communication at retail customer touchpoints.",
+    benefits: ["Point-of-sale materials", "Storefront and in-store formats", "Multi-location coordination"],
   },
   {
     title: "Wall Painting",
-    desc: "Hand-painted wall media across high-footfall neighbourhoods for long-term brand presence.",
-    benefits: ["Long-lasting visibility", "Hyperlocal targeting", "Distinctive, hand-crafted feel"],
+    desc: "Hand-painted wall media coordinated for selected neighbourhoods and campaign markets.",
+    benefits: ["Painted campaign creative", "Site and market planning", "On-ground coordination"],
   },
   {
     title: "Brand Activation",
-    desc: "Experiential campaigns that bring a brand to life through direct, memorable interactions.",
-    benefits: ["Builds emotional connection", "Drives word-of-mouth", "Flexible for any brand category"],
+    desc: "Experiential campaigns built around direct interaction between a brand and its audience.",
+    benefits: ["On-ground campaign concepts", "Audience participation formats", "Execution coordination"],
   },
   {
     title: "Product Sampling",
     desc: "On-ground sampling drives that put your product directly into customers' hands.",
-    benefits: ["Direct trial generation", "Targeted audience zones", "Real-time feedback capture"],
+    benefits: ["Sample distribution planning", "Market and audience planning", "On-ground coordination"],
   },
   {
     title: "Mall Promotions",
-    desc: "In-mall activations designed to capture attention in high-footfall retail environments.",
-    benefits: ["Captive, engaged audience", "Premium retail environments", "Flexible activation formats"],
+    desc: "In-mall activations designed for direct campaign communication in retail environments.",
+    benefits: ["Kiosk and activation formats", "Venue-based campaign planning", "Branded engagement materials"],
   },
   {
     title: "Road Shows",
-    desc: "Multi-location road shows that carry a campaign across cities and neighbourhoods.",
-    benefits: ["Extended geographic reach", "Combines media with events", "Strong local engagement"],
+    desc: "Multi-location road shows that carry a campaign through selected cities and neighbourhoods.",
+    benefits: ["Branded mobile units", "Multi-location scheduling", "Setup and route coordination"],
   },
   {
     title: "Corporate Events",
     desc: "End-to-end support for corporate branding at conferences, launches and company events.",
-    benefits: ["Professional execution", "Custom branding collateral", "On-site coordination"],
+    benefits: ["Event branding", "Custom campaign collateral", "On-site coordination"],
   },
 ];
 
@@ -123,7 +123,7 @@ export default function Services() {
               <div className="rounded-2xl overflow-hidden aspect-[16/10] shadow-card">
                 <img
                   src={serviceImages[s.title]}
-                  alt={s.title}
+                  alt={`${s.title} service by The Brand Advertising`}
                   loading="lazy"
                   decoding="async"
                   className="w-full h-full object-cover"
@@ -133,7 +133,7 @@ export default function Services() {
                 <span className="text-xs tracking-[0.2em] uppercase text-brand-red font-medium">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <h3 className="font-display font-semibold text-2xl md:text-3xl mt-2 mb-4">{s.title}</h3>
+                <h2 className="font-display font-semibold text-2xl md:text-3xl mt-2 mb-4">{s.title}</h2>
                 <p className="text-charcoal-soft/85 leading-relaxed mb-6">{s.desc}</p>
                 <ul className="space-y-2 mb-8">
                   {s.benefits.map((b) => (

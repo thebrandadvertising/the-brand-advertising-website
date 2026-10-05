@@ -35,12 +35,29 @@ export default function Seo({ title, description, path = "/", schema, pageType =
     }
     canonical.href = url;
 
-    const id = "page-schema";
-    document.getElementById(id)?.remove();
+    const id = "site-schema";
+    let script = document.getElementById(id);
+    let sharedGraph = [];
+    if (script) {
+      try {
+        const existing = JSON.parse(script.textContent);
+        sharedGraph = (existing["@graph"] || []).filter((node) =>
+          ["Organization", "WebSite"].includes(node["@type"]),
+        );
+      } catch {
+        sharedGraph = [];
+      }
+    } else {
+      script = document.createElement("script");
+      script.id = id;
+      script.type = "application/ld+json";
+      document.head.appendChild(script);
+    }
     const suppliedGraph = schema?.["@graph"] || (schema ? [{ ...schema, "@context": undefined }] : []);
     const pageSchema = {
       "@context": "https://schema.org",
       "@graph": [
+        ...sharedGraph,
         {
           "@type": pageType === "WebPage" ? "WebPage" : ["WebPage", pageType],
           "@id": `${url}#webpage`,
@@ -54,13 +71,7 @@ export default function Seo({ title, description, path = "/", schema, pageType =
         ...suppliedGraph,
       ],
     };
-    const script = document.createElement("script");
-    script.id = id;
-    script.type = "application/ld+json";
     script.textContent = JSON.stringify(pageSchema);
-    document.head.appendChild(script);
-
-    return () => document.getElementById(id)?.remove();
   }, [title, description, path, schema, pageType]);
 
   return null;

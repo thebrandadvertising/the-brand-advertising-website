@@ -93,6 +93,7 @@ export default function ServiceDetail() {
     "@graph": [
       {
         "@type": "Service",
+        "@id": `${pageUrl}#service`,
         name: service.name,
         description: service.description,
         provider: { "@type": "Organization", name: "The Brand Advertising", url: "https://thebrandadvertising.com/" },
@@ -164,6 +165,31 @@ export default function ServiceDetail() {
         </div>
       </section>
 
+      <section className="py-20 bg-white" aria-labelledby="service-process-title">
+        <div className="max-w-5xl mx-auto px-6">
+          <h2 id="service-process-title" className="font-display font-semibold text-3xl mb-4">
+            How TBA plans a {service.name.toLowerCase()} campaign
+          </h2>
+          <p className="text-charcoal-soft/80 leading-relaxed mb-10 max-w-3xl">
+            The final plan depends on the campaign objective, markets, timing and approved scope. These four steps establish the practical requirements before execution begins.
+          </p>
+          <ol className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {[
+              ["Define the brief", "Confirm the objective, target audience, markets and campaign dates."],
+              ["Select the format", "Choose the surfaces, placements or activation setting that fit the brief."],
+              ["Prepare production", "Adapt approved artwork and coordinate production requirements."],
+              ["Coordinate execution", "Schedule installation or on-ground deployment for the agreed scope."],
+            ].map(([title, text], index) => (
+              <li key={title} className="rounded-2xl border border-charcoal/10 p-6">
+                <span className="text-xs tracking-[0.2em] uppercase text-brand-red">Step {index + 1}</span>
+                <h3 className="font-display font-semibold text-xl mt-3 mb-2">{title}</h3>
+                <p className="text-sm text-charcoal-soft/75 leading-relaxed">{text}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
       <section className="py-20 bg-mist text-center">
         <div className="max-w-3xl mx-auto px-6">
           <h2 className="font-display font-semibold text-3xl mb-5">Available across India</h2>
@@ -186,7 +212,7 @@ export default function ServiceDetail() {
             ))}
           </div>
           <p className="mt-8 text-sm text-charcoal-soft/75">
-            See <Link to="/campaigns" className="text-brand-red font-medium">TBA campaign work</Link> or{" "}
+            See <Link to="/campaigns" className="text-brand-red font-medium">{slug === "btl-activation" ? "TBA's BTL activation campaigns" : "TBA campaign work"}</Link> or{" "}
             <Link to="/contact" className="text-brand-red font-medium">contact The Brand Advertising</Link> to discuss a brief.
           </p>
         </div>

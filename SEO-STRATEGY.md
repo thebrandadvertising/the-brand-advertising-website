@@ -95,6 +95,24 @@ The exact-brand web search did not surface a clear result for TBA in the sampled
 - Service pages connect to related services, campaign proof, Pan-India coverage and contact.
 - Unverified homepage statistics and unverified public business hours are not published.
 
+## Campaign SEO audit
+
+- The indexable `/campaigns` page contains two photographed IndianOil BTL activations: Jodhpur and Ajmer.
+- Both campaigns now link directly to the BTL Activation service, and the BTL page links back using a descriptive campaign anchor.
+- Campaign images use descriptive, image-specific alt text based on the visible activity rather than numbered generic text.
+- Promotional outcome language was replaced with factual descriptions of the visible kiosks, product conversations, prize wheel, gifts and launch activity.
+- The campaign graph identifies the two records as `CreativeWork` items, connects them to TBA's Organization entity and BTL service, and uses only locations and dates already present on the page.
+- Five text-only client stories and testimonials were removed because the repository contained no supporting campaign assets or verification. They can be restored after client identity, campaign facts and quotation permission are confirmed.
+
+## External authority priorities
+
+1. Use “The Brand Advertising” consistently on the official LinkedIn and Instagram profiles and link both profiles to the canonical `.com` homepage.
+2. Create or correct a Google Business Profile only with the genuine business name, service-area settings and verified business details. Do not publish a residential address.
+3. Ask IndianOil or other genuine campaign partners for permission to link to the relevant TBA campaign record from an official partner, event or supplier page.
+4. Build listings only on reputable Indian business and advertising-industry directories that permit accurate company profiles and canonical website links.
+5. Pitch verified campaign photographs and execution stories to relevant advertising, experiential marketing and outdoor-media publications.
+6. Keep name, website, phone and email consistent across every approved citation; avoid bulk directory services and paid link schemes.
+
 ## Data labels
 
 - **[ACTUAL TOOL DATA]** No Semrush metrics are available because the connected account has no API units.
