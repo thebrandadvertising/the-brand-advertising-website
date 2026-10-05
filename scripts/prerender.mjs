@@ -19,6 +19,15 @@ const template = await readFile("dist/index.html", "utf8");
 
 for (const [path, title, description] of basePages) {
   const url = `${siteUrl}${path}`;
+  const pageSchema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    url,
+    name: title,
+    description,
+    isPartOf: { "@id": `${siteUrl}/#website` },
+    inLanguage: "en-IN",
+  });
   const html = template
     .replace(/<title>.*?<\/title>/, `<title>${title}</title>`)
     .replace(/<meta name="description" content=".*?"\s*\/>/, `<meta name="description" content="${description}" />`)
@@ -27,7 +36,8 @@ for (const [path, title, description] of basePages) {
     .replace(/<meta property="og:description" content=".*?"\s*\/>/, `<meta property="og:description" content="${description}" />`)
     .replace(/<meta property="og:url" content=".*?"\s*\/>/, `<meta property="og:url" content="${url}" />`)
     .replace(/<meta name="twitter:title" content=".*?"\s*\/>/, `<meta name="twitter:title" content="${title}" />`)
-    .replace(/<meta name="twitter:description" content=".*?"\s*\/>/, `<meta name="twitter:description" content="${description}" />`);
+    .replace(/<meta name="twitter:description" content=".*?"\s*\/>/, `<meta name="twitter:description" content="${description}" />`)
+    .replace("</head>", `    <script type="application/ld+json">${pageSchema}</script>\n  </head>`);
   const output = join("dist", `${path.slice(1)}.html`);
   await mkdir(dirname(output), { recursive: true });
   await writeFile(output, html);

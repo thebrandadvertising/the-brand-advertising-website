@@ -37,13 +37,26 @@ export default function Seo({ title, description, path = "/", schema }) {
 
     const id = "page-schema";
     document.getElementById(id)?.remove();
-    if (schema) {
-      const script = document.createElement("script");
-      script.id = id;
-      script.type = "application/ld+json";
-      script.textContent = JSON.stringify(schema);
-      document.head.appendChild(script);
-    }
+    const suppliedGraph = schema?.["@graph"] || (schema ? [{ ...schema, "@context": undefined }] : []);
+    const pageSchema = {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          name: title,
+          description,
+          url,
+          inLanguage: "en-IN",
+          isPartOf: { "@id": `${SITE_URL}/#website` },
+        },
+        ...suppliedGraph,
+      ],
+    };
+    const script = document.createElement("script");
+    script.id = id;
+    script.type = "application/ld+json";
+    script.textContent = JSON.stringify(pageSchema);
+    document.head.appendChild(script);
 
     return () => document.getElementById(id)?.remove();
   }, [title, description, path, schema]);
