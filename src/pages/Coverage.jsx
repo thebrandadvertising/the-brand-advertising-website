@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Seo from "../components/Seo";
+import { cities } from "../data/cities";
 
 const regions = [
   ["North India", "Delhi NCR, Chandigarh, Jaipur, Lucknow, Kanpur, Dehradun, Jammu, Amritsar, Ludhiana and other markets across Delhi, Haryana, Punjab, Rajasthan, Uttar Pradesh, Uttarakhand, Himachal Pradesh and Jammu & Kashmir."],
@@ -18,6 +19,19 @@ export default function Coverage() {
           <p className="text-xs tracking-[0.24em] uppercase text-[#f1c94c] mb-5">Pan-India campaign execution</p>
           <h1 className="font-display font-semibold text-4xl md:text-6xl mb-6">Advertising that moves across India</h1>
           <p className="text-white/70 text-lg leading-relaxed">We coordinate vehicle branding, retail visibility and on-ground campaigns across metros, state capitals and regional markets.</p>
+        </div>
+      </section>
+      <section className="py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <h2 className="font-display font-semibold text-3xl text-center mb-4">Auto hood branding in major Indian cities</h2>
+          <p className="text-charcoal-soft/75 text-center max-w-3xl mx-auto mb-10">Explore campaign information for priority metro and regional markets.</p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {cities.map((city) => (
+              <Link key={city.slug} to={`/auto-hood-branding/${city.slug}`} className="p-5 rounded-xl border border-charcoal/10 hover:border-brand-red hover:text-brand-red transition-colors">
+                Auto Hood Branding in {city.name} →
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
       <section className="py-20 bg-cream">
