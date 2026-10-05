@@ -12,7 +12,7 @@ function setMeta(selector, attributes) {
   Object.entries(attributes).forEach(([key, value]) => element.setAttribute(key, value));
 }
 
-export default function Seo({ title, description, path = "/", schema }) {
+export default function Seo({ title, description, path = "/", schema, pageType = "WebPage" }) {
   useEffect(() => {
     const url = `${SITE_URL}${path}`;
     document.title = title;
@@ -42,12 +42,14 @@ export default function Seo({ title, description, path = "/", schema }) {
       "@context": "https://schema.org",
       "@graph": [
         {
-          "@type": "WebPage",
+          "@type": pageType === "WebPage" ? "WebPage" : ["WebPage", pageType],
+          "@id": `${url}#webpage`,
           name: title,
           description,
           url,
           inLanguage: "en-IN",
           isPartOf: { "@id": `${SITE_URL}/#website` },
+          about: { "@id": `${SITE_URL}/#organization` },
         },
         ...suppliedGraph,
       ],
@@ -59,7 +61,7 @@ export default function Seo({ title, description, path = "/", schema }) {
     document.head.appendChild(script);
 
     return () => document.getElementById(id)?.remove();
-  }, [title, description, path, schema]);
+  }, [title, description, path, schema, pageType]);
 
   return null;
 }

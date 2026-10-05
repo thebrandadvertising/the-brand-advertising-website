@@ -45,7 +45,7 @@ const services = [
   {
     title: "Auto Hood Branding",
     desc: "Bold hood wraps that turn the front of every auto rickshaw into a nonstop moving billboard.",
-    benefits: ["Maximum daily impressions", "Cost-effective vs static hoardings", "Custom creative per campaign"],
+    benefits: ["Large hood advertising format", "Mobile street-level placement", "Custom creative per campaign"],
   },
   {
     title: "Cab Branding",

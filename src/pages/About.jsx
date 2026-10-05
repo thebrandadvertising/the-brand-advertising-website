@@ -13,7 +13,7 @@ const process = [
   { step: "Planning", desc: "Build a media plan around real movement patterns." },
   { step: "Creative", desc: "Design branding that gets noticed in seconds." },
   { step: "Execution", desc: "Install and deploy across the chosen fleet." },
-  { step: "Reporting", desc: "Track visibility and share campaign outcomes." },
+  { step: "Review", desc: "Check the completed work against the approved campaign scope." },
 ];
 
 export default function About() {

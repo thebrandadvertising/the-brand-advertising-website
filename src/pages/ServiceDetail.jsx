@@ -75,6 +75,12 @@ const services = {
   },
 };
 
+const serviceLinks = Object.entries(services).map(([slug, service]) => ({
+  slug,
+  name: service.name,
+  to: `/services/${slug}`,
+}));
+
 export default function ServiceDetail() {
   const { slug } = useParams();
   const service = services[slug];
@@ -114,7 +120,7 @@ export default function ServiceDetail() {
 
   return (
     <main>
-      <Seo title={service.title} description={service.description} path={path} schema={schema} />
+      <Seo title={service.title} description={service.description} path={path} schema={schema} pageType="ItemPage" />
       <section className="pt-40 pb-20 bg-ink text-white">
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
           <div>
@@ -163,6 +169,26 @@ export default function ServiceDetail() {
           <h2 className="font-display font-semibold text-3xl mb-5">Available across India</h2>
           <p className="text-charcoal-soft/80 mb-8">Plan campaigns across metros, state capitals and regional markets through one advertising partner.</p>
           <Link to="/pan-india-coverage" className="text-brand-red font-medium">Explore our pan-India coverage →</Link>
+        </div>
+      </section>
+
+      <section className="py-20 bg-white" aria-labelledby="related-services-title">
+        <div className="max-w-5xl mx-auto px-6">
+          <h2 id="related-services-title" className="font-display font-semibold text-3xl mb-4">Related advertising services</h2>
+          <p className="text-charcoal-soft/80 leading-relaxed mb-8">
+            Combine formats when a campaign needs visibility across routes, retail spaces and direct audience experiences.
+          </p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {serviceLinks.filter((item) => item.slug !== slug).map((item) => (
+              <Link key={item.slug} to={item.to} className="rounded-2xl border border-charcoal/10 p-5 font-medium hover:border-brand-red hover:text-brand-red transition-colors">
+                {item.name} <span aria-hidden="true">→</span>
+              </Link>
+            ))}
+          </div>
+          <p className="mt-8 text-sm text-charcoal-soft/75">
+            See <Link to="/campaigns" className="text-brand-red font-medium">TBA campaign work</Link> or{" "}
+            <Link to="/contact" className="text-brand-red font-medium">contact The Brand Advertising</Link> to discuss a brief.
+          </p>
         </div>
       </section>
     </main>

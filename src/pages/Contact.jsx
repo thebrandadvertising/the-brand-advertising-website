@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
-import { MapPin, Mail, Clock, Send, CheckCircle2, Route, Sparkles, LoaderCircle } from "lucide-react";
+import { MapPin, Mail, Send, CheckCircle2, Route, Sparkles, LoaderCircle } from "lucide-react";
 import RelaxingHero from "../components/RelaxingHero";
 import campaignOne from "../assets/contact/cab-branding-contact.webp";
 import campaignTwo from "../assets/contact/auto-hood-branding-contact.webp";
@@ -284,10 +284,6 @@ export default function Contact() {
                   <a href="mailto:admin@thebrandadvertising.in" className="hover:text-white break-all">
                     admin@thebrandadvertising.in
                   </a>
-                </li>
-                <li className="flex gap-4">
-                  <Clock size={18} className="text-brand-rose shrink-0" />
-                  <span>Monday to Saturday · 10:00 AM–7:00 PM</span>
                 </li>
               </ul>
             </div>

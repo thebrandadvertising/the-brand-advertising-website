@@ -2,7 +2,6 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Leaf, Route, Sparkles, Wind } from "lucide-react";
 import BrandOrbit from "../components/BrandOrbit";
-import CountUp from "../components/CountUp";
 import useVideoPlayback from "../hooks/useVideoPlayback";
 
 import forestPoster from "../assets/tba/auto-brand-city.webp";
@@ -43,7 +42,7 @@ const banners = [
   { number: "02", eyebrow: "Creative", title: "Designed to be remembered", text: "Clear visual ideas made for real-world attention spans, moving vehicles and busy city environments." },
   { number: "03", eyebrow: "Execution", title: "Crafted for every surface", text: "From a single auto hood to an entire fleet, every installation receives the same considered finish." },
   { number: "04", eyebrow: "Reach", title: "Present where life happens", text: "Campaigns travel through markets, business districts, residential routes and everyday moments." },
-  { number: "05", eyebrow: "Partnership", title: "With you from brief to road", text: "Planning, production, deployment and reporting are handled by one experienced, accountable team." },
+  { number: "05", eyebrow: "Partnership", title: "With you from brief to road", text: "Planning, production and deployment are coordinated through one accountable campaign team." },
 ];
 
 export default function Home() {
@@ -95,8 +94,8 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.8 }}
             className="nature-intro"
           >
-            Calm, considered outdoor advertising that becomes part of the
-            journey—not part of the noise.
+            The Brand Advertising is a Pan-India advertising and brand
+            activation company specialising in vehicle, retail and on-ground campaigns.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 18 }}
@@ -123,6 +122,32 @@ export default function Home() {
       </section>
 
       <BrandOrbit />
+
+      <section className="py-20 bg-white" aria-labelledby="about-tba-title">
+        <div className="max-w-5xl mx-auto px-6 grid md:grid-cols-[0.8fr_1.2fr] gap-10 md:gap-16 items-start">
+          <div>
+            <span className="nature-section-number">The official TBA website</span>
+            <h2 id="about-tba-title" className="font-display font-semibold text-3xl md:text-5xl mt-4">
+              What is The Brand Advertising?
+            </h2>
+          </div>
+          <div className="text-charcoal-soft/85 leading-relaxed space-y-5">
+            <p>
+              The Brand Advertising (TBA) plans and executes outdoor advertising,
+              transit media, retail branding and brand activation campaigns across India.
+              Its services connect brands with people on everyday routes, inside retail
+              environments and through direct on-ground experiences.
+            </p>
+            <p>
+              Explore TBA&rsquo;s <Link to="/services/auto-hood-branding" className="text-brand-red font-medium">auto hood branding</Link>,{" "}
+              <Link to="/services/vehicle-branding" className="text-brand-red font-medium">vehicle branding</Link>,{" "}
+              <Link to="/services/retail-branding" className="text-brand-red font-medium">retail branding</Link> and{" "}
+              <Link to="/services/btl-activation" className="text-brand-red font-medium">BTL activation</Link> services,
+              or learn <Link to="/about" className="text-brand-red font-medium">how TBA works</Link>.
+            </p>
+          </div>
+        </div>
+      </section>
 
       <section className="nature-statement">
         <div className="nature-shell nature-statement-grid">
@@ -179,22 +204,6 @@ export default function Home() {
               </motion.article>
             ))}
           </div>
-        </div>
-      </section>
-
-      <section className="home-stats">
-        <div className="nature-shell home-stats-grid">
-          {[
-            { value: 20, label: "Years of Experience" },
-            { value: 500, label: "Branding Specialists" },
-            { value: 20, label: "Industry Awards" },
-            { value: 500, label: "Projects Delivered" },
-          ].map((stat) => (
-            <div className="home-stat" key={stat.label}>
-              <CountUp value={stat.value} />
-              <p>{stat.label}</p>
-            </div>
-          ))}
         </div>
       </section>
 

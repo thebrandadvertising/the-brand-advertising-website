@@ -16,11 +16,11 @@ import MotionExperience from "./components/MotionExperience";
 import Seo from "./components/Seo";
 
 const pageSeo = {
-  "/": ["The Brand Advertising | Pan-India Outdoor & Vehicle Branding", "The Brand Advertising is a pan-India marketing agency for auto hood branding, cab branding, retail branding, bus branding, wall painting and activations."],
-  "/about": ["About The Brand Advertising | Pan-India Marketing Agency", "Meet The Brand Advertising, a pan-India agency creating vehicle branding, outdoor media, retail branding and on-ground brand experiences."],
-  "/services": ["Advertising & Branding Services Across India | TBA", "Explore auto hood branding, cab and bus branding, retail branding, wall painting, product sampling, roadshows and corporate events across India."],
-  "/campaigns": ["Advertising Campaigns & Brand Activations | TBA India", "Explore outdoor advertising, vehicle branding and on-ground campaign work delivered by The Brand Advertising across India."],
-  "/contact": ["Contact The Brand Advertising | Plan a Pan-India Campaign", "Contact The Brand Advertising for auto hood branding, cab branding, retail branding and campaign execution across India."],
+  "/": ["The Brand Advertising | Pan-India Outdoor & Vehicle Branding", "The Brand Advertising is a pan-India marketing agency for auto hood branding, cab branding, retail branding, bus branding, wall painting and activations.", "WebPage"],
+  "/about": ["About The Brand Advertising | Pan-India Marketing Agency", "Meet The Brand Advertising, a pan-India agency creating vehicle branding, outdoor media, retail branding and on-ground brand experiences.", "AboutPage"],
+  "/services": ["Advertising & Branding Services Across India | TBA", "Explore auto hood branding, cab and bus branding, retail branding, wall painting, product sampling, roadshows and corporate events across India.", "CollectionPage"],
+  "/campaigns": ["Advertising Campaigns & Brand Activations | TBA India", "Explore outdoor advertising, vehicle branding and on-ground campaign work delivered by The Brand Advertising across India.", "CollectionPage"],
+  "/contact": ["Contact The Brand Advertising | Plan a Pan-India Campaign", "Contact The Brand Advertising for auto hood branding, cab branding, retail branding and campaign execution across India.", "ContactPage"],
 };
 
 export default function App() {
@@ -41,7 +41,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-cream">
       <LoadingScreen show={loading} route={location.pathname} />
-      {seo && <Seo title={seo[0]} description={seo[1]} path={normalizedPath} />}
+      {seo && <Seo title={seo[0]} description={seo[1]} path={normalizedPath} pageType={seo[2]} />}
       <MotionExperience />
       <ScrollToTop />
       <Navbar />

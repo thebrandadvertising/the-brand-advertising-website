@@ -41,17 +41,22 @@ for (const url of urls) {
 
   const schemaBlocks = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)];
   if (!schemaBlocks.length) errors.push(`${url}: missing structured data`);
-  let hasWebPage = false;
+  const pageSchemas = [];
   for (const block of schemaBlocks) {
     try {
       const parsed = JSON.parse(block[1]);
       const nodes = parsed["@graph"] || [parsed];
-      hasWebPage ||= nodes.some((node) => node["@type"] === "WebPage");
+      pageSchemas.push(...nodes.filter((node) => {
+        const types = Array.isArray(node["@type"]) ? node["@type"] : [node["@type"]];
+        return types.includes("WebPage");
+      }));
     } catch {
       errors.push(`${url}: invalid JSON-LD`);
     }
   }
-  if (!hasWebPage) errors.push(`${url}: missing WebPage schema`);
+  if (!pageSchemas.length) errors.push(`${url}: missing WebPage schema`);
+  if (pageSchemas.length > 1) errors.push(`${url}: multiple WebPage schema nodes found`);
+  if (pageSchemas[0]?.url !== url) errors.push(`${url}: WebPage schema URL is ${pageSchemas[0]?.url || "missing"}`);
 
   if (title) {
     if (titles.has(title)) errors.push(`${url}: duplicate title also used by ${titles.get(title)}`);

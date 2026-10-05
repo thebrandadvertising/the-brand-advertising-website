@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { MapPin, Mail, Clock } from "lucide-react";
+import { MapPin, Mail } from "lucide-react";
 
 const services = [
   { label: "Auto Hood Branding", id: "auto-hood-branding", page: true },
@@ -95,10 +95,6 @@ export default function Footer() {
               <a href="mailto:admin@thebrandadvertising.in" className="hover:text-white break-all">
                 admin@thebrandadvertising.in
               </a>
-            </li>
-            <li className="flex gap-3">
-              <Clock size={18} className="shrink-0 text-[#d3a51f]" />
-              <span>Monday–Saturday, 10:00 AM–7:00 PM</span>
             </li>
           </ul>
         </div>

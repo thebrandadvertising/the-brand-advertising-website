@@ -59,19 +59,50 @@ Terms such as NLB, GSB, AHB and flex branding require business clarification and
 
 ## Preliminary keyword-to-page mapping
 
-| Page | Primary topic | Supporting topics | Intent | Reason |
-|---|---|---|---|---|
-| `/` | The Brand Advertising | Pan-India advertising agency, vehicle branding, retail branding, BTL activation | Brand/commercial | Defines the entity and routes visitors to the main services |
-| `/about` | About The Brand Advertising | advertising agency India, campaign planning and execution | Brand/informational | Explains who TBA is and how it works |
-| `/services` | advertising and branding services India | auto hood, vehicle, retail, wall painting, sampling, events | Commercial discovery | Main service catalogue without forcing every term onto the homepage |
-| `/services/auto-hood-branding` | auto hood branding India | auto rickshaw advertising, auto branding | Commercial | TBA's stated priority service |
-| `/services/vehicle-branding` | vehicle branding company India | cab branding, bus branding, van branding | Commercial | Groups related vehicle formats and avoids separate thin pages |
-| `/services/cab-branding` | cab branding India | taxi advertising, vehicle advertising | Commercial | Existing supported specialist service |
-| `/services/retail-branding` | retail branding agency India | in-store branding, storefront branding, point-of-sale branding | Commercial | Existing supported specialist service |
-| `/services/btl-activation` | BTL activation agency India | experiential marketing, product sampling, mall promotions, roadshows | Commercial | Groups genuine activation formats under one useful page |
-| `/pan-india-coverage` | Pan-India campaign execution | regional campaign planning, national rollout | Commercial/informational | States genuine national coverage without unsupported local-office claims |
-| `/campaigns` | advertising campaign work | brand activation campaigns, outdoor campaign examples | Proof/commercial | Demonstrates real work and should grow into detailed case studies |
-| `/contact` | contact The Brand Advertising | campaign enquiry, advertising quote | Transactional | Converts qualified visitors |
+| Keyword cluster | Intent | Target page | Why this page | Priority | Evidence | Status |
+|---|---|---|---|---|---|---|
+| The Brand Advertising; The Brand Advertising India | Brand/navigation | `/` | Official entity page with Organization and WebSite signals | Highest | Repository/live site + web brand search | Implemented |
+| The Brand Advertising services; advertising and brand activation company | Brand/commercial | `/services` | Service catalogue tied directly to the entity | High | Repository/live site | Implemented |
+| auto hood branding India; auto rickshaw advertising; auto rickshaw branding | Commercial | `/services/auto-hood-branding` | Dedicated page for TBA's stated priority service | Highest | Business brief + web search terminology | Implemented |
+| vehicle branding company India; vehicle branding services India | Commercial | `/services/vehicle-branding` | Groups genuine auto, cab, bus and van formats | High | Business brief + web competitor pages | Implemented |
+| cab branding India; taxi advertising | Commercial | `/services/cab-branding` | Supported specialist service with distinct intent | High | Business brief + web search terminology | Implemented |
+| retail branding agency India; in-store branding; storefront branding | Commercial | `/services/retail-branding` | Covers point-of-purchase visibility intent | High | Business brief + web search terminology | Implemented |
+| BTL activation agency India; experiential marketing; on-ground brand activation | Commercial | `/services/btl-activation` | Groups genuine activation formats under one page | High | Business brief + current competitor terminology | Implemented |
+| Pan-India campaign execution; national campaign rollout | Commercial/informational | `/pan-india-coverage` | States national capability without inventing offices | Medium | Business brief | Implemented |
+| TBA campaigns; brand activation campaign examples | Proof/commercial | `/campaigns` | Shows real project work and supports service trust | High | Repository/live site | Implemented; expand with verified evidence |
+| contact The Brand Advertising; campaign enquiry | Transactional | `/contact` | Converts qualified visitors | High | Repository/live site | Implemented |
+
+## Web research findings (5 October 2026)
+
+Search-result review found that strong pages in this market commonly use a precise service definition, a visible planning/execution process, related-service links, project evidence and concise FAQs. Auto-branding results also use the terms “auto rickshaw advertising”, “auto branding” and “hood branding” interchangeably. These patterns informed TBA's page terminology and structure; competitor prices, fleet counts, reach claims and performance statistics were not reused.
+
+Observed examples:
+
+- [BrandOnAuto auto hood branding](https://brandonauto.in/services/auto-hood-branding): detailed format explanation, process, comparisons and FAQs.
+- [AutoRickshawAds](https://autorickshawads.com/): clear relationship between auto advertising, rickshaw branding and hood formats.
+- [Abira Group vehicle branding](https://www.abira-group.com/services/vehicle-branding/): concise definition and staged delivery process.
+- [Experientials brand activation](https://experientials.in/brand-activation-agency-india/): answer-first definition, campaign flow, related services and FAQs.
+- [Play Experiential brand activations](https://playexperiential.com/brand-activations/): service taxonomy and direct campaign-planning questions.
+
+The exact-brand web search did not surface a clear result for TBA in the sampled results. This is an observation from web search, not verified Google ranking data. The implementation therefore prioritizes consistent naming, an explicit “What is The Brand Advertising?” answer, official social references, Organization/WebSite schema and brand-to-service internal links.
+
+## Implemented entity architecture
+
+- Homepage gives a concise factual definition of The Brand Advertising and links to the About page and core services.
+- Organization schema identifies the official name, alternate name, canonical website, contact details, India service area, official profiles, service knowledge and offer catalogue.
+- WebSite schema declares the preferred site name and publisher entity.
+- Every indexed route has one canonical, route-specific WebPage node; About, Contact, Collection and Item page subtypes clarify page purpose.
+- Service pages connect to related services, campaign proof, Pan-India coverage and contact.
+- Unverified homepage statistics and unverified public business hours are not published.
+
+## Data labels
+
+- **[ACTUAL TOOL DATA]** No Semrush metrics are available because the connected account has no API units.
+- **[REPOSITORY/LIVE SITE DATA]** Metadata, schema, canonical URLs, sitemap entries, redirects and page copy are validated by the project checker and live HTTP checks.
+- **[WEB RESEARCH]** Competitor terminology and page-structure observations are qualitative; no ranking or traffic claim is inferred.
+- **[PENDING GSC]** Queries, impressions, clicks, CTR, positions, indexing reports and URL Inspection remain unavailable.
+- **[PENDING SEMRUSH]** Search volume, difficulty, CPC, rankings, traffic, backlink counts and quantitative competitor gaps remain unavailable.
+- **[BUSINESS VALIDATION REQUIRED]** Official address, business hours, service-specific material specifications, lead times, minimum quantities, pricing, reporting deliverables and any performance claims.
 
 ## Content backlog
 
