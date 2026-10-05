@@ -11,7 +11,6 @@ import Contact from "./pages/Contact";
 import Campaigns from "./pages/Campaigns";
 import ServiceDetail from "./pages/ServiceDetail";
 import Coverage from "./pages/Coverage";
-import CityAutoHood from "./pages/CityAutoHood";
 import SocialButtons from "./components/SocialButtons";
 import MotionExperience from "./components/MotionExperience";
 import Seo from "./components/Seo";
@@ -29,7 +28,8 @@ export default function App() {
     () => !window.sessionStorage.getItem("tba-intro-seen")
   );
   const location = useLocation();
-  const seo = pageSeo[location.pathname];
+  const normalizedPath = location.pathname.replace(/\/+$/, "") || "/";
+  const seo = pageSeo[normalizedPath];
 
   useEffect(() => {
     if (!loading) return undefined;
@@ -41,7 +41,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-cream">
       <LoadingScreen show={loading} route={location.pathname} />
-      {seo && <Seo title={seo[0]} description={seo[1]} path={location.pathname} />}
+      {seo && <Seo title={seo[0]} description={seo[1]} path={normalizedPath} />}
       <MotionExperience />
       <ScrollToTop />
       <Navbar />
@@ -51,7 +51,6 @@ export default function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/services/:slug" element={<ServiceDetail />} />
         <Route path="/pan-india-coverage" element={<Coverage />} />
-        <Route path="/auto-hood-branding/:citySlug" element={<CityAutoHood />} />
         <Route path="/work" element={<Navigate to="/campaigns" replace />} />
         <Route path="/campaigns" element={<Campaigns />} />
         <Route path="/contact" element={<Contact />} />

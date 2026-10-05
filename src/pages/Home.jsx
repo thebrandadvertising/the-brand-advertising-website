@@ -20,18 +20,21 @@ const services = [
     number: "01",
     title: "Vehicle branding",
     text: "Auto hood, cab, bus and van campaigns that carry your story naturally through the city.",
+    to: "/services/vehicle-branding",
   },
   {
     icon: Leaf,
     number: "02",
     title: "Retail presence",
     text: "Clear, memorable retail and wall-painting campaigns designed for the places people live and shop.",
+    to: "/services/retail-branding",
   },
   {
     icon: Sparkles,
     number: "03",
     title: "Brand experiences",
     text: "Warm, human activations that turn a brief encounter into a lasting feeling.",
+    to: "/services/btl-activation",
   },
 ];
 
@@ -170,7 +173,7 @@ export default function Home() {
                 <service.icon size={25} strokeWidth={1.4} />
                 <h3>{service.title}</h3>
                 <p>{service.text}</p>
-                <Link to="/services" aria-label={`Explore ${service.title}`}>
+                <Link to={service.to} aria-label={`Explore ${service.title}`}>
                   <ArrowRight size={18} />
                 </Link>
               </motion.article>

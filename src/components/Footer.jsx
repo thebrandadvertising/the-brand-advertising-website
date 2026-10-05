@@ -4,11 +4,10 @@ import { MapPin, Mail, Clock } from "lucide-react";
 const services = [
   { label: "Auto Hood Branding", id: "auto-hood-branding", page: true },
   { label: "Cab Branding", id: "cab-branding", page: true },
-  { label: "Bus Branding", id: "bus-branding" },
-  { label: "Van Activation", id: "van-activation" },
+  { label: "Vehicle Branding", id: "vehicle-branding", page: true },
+  { label: "BTL Activation", id: "btl-activation", page: true },
   { label: "Retail Branding", id: "retail-branding", page: true },
   { label: "Wall Painting", id: "wall-painting" },
-  { label: "Brand Activation", id: "brand-activation" },
   { label: "Product Sampling", id: "product-sampling" },
   { label: "Mall Promotions", id: "mall-promotions" },
   { label: "Road Shows", id: "road-shows" },

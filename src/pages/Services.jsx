@@ -29,6 +29,18 @@ const serviceImages = {
   "Corporate Events": corporateEvents,
 };
 
+const servicePages = {
+  "Auto Hood Branding": "/services/auto-hood-branding",
+  "Cab Branding": "/services/cab-branding",
+  "Bus Branding": "/services/vehicle-branding",
+  "Van Activation": "/services/btl-activation",
+  "Retail Branding": "/services/retail-branding",
+  "Brand Activation": "/services/btl-activation",
+  "Product Sampling": "/services/btl-activation",
+  "Mall Promotions": "/services/btl-activation",
+  "Road Shows": "/services/btl-activation",
+};
+
 const services = [
   {
     title: "Auto Hood Branding",
@@ -132,10 +144,10 @@ export default function Services() {
                   ))}
                 </ul>
                 <Link
-                  to={["Auto Hood Branding", "Cab Branding", "Retail Branding"].includes(s.title) ? `/services/${s.title.toLowerCase().replace(/[^a-z0-9]+/g, "-")}` : "/contact"}
+                  to={servicePages[s.title] || "/contact"}
                   className="inline-flex items-center gap-2 text-brand-red font-medium text-sm group"
                 >
-                  {["Auto Hood Branding", "Cab Branding", "Retail Branding"].includes(s.title) ? "Explore This Service" : "Enquire About This Service"}
+                  {servicePages[s.title] ? "Explore This Service" : "Enquire About This Service"}
                   <ArrowUpRight size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                 </Link>
               </div>

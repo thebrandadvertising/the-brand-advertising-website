@@ -62,6 +62,12 @@ Check the code:
 npm run lint
 ```
 
+Validate sitemap URLs and essential SEO metadata after building:
+
+```bash
+npm run seo:check
+```
+
 ## Contact form
 
 The contact form submits enquiries through FormSubmit to:
