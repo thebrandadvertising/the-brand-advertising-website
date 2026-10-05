@@ -6,7 +6,7 @@ Official marketing website for **The Brand Advertising (TBA)**, an India-focused
 
 [https://thebrandadvertising.com/](https://thebrandadvertising.com/)
 
-The site currently uses hash-based routes so it works reliably on GitHub Pages.
+The site uses search-friendly routes and is hosted on Hostinger.
 
 ## Technology
 
@@ -84,20 +84,16 @@ Large original image files were converted to optimized WebP versions. Only asset
 
 ## Deployment
 
-Every push to the `main` branch runs `.github/workflows/deploy.yml`, builds the site and deploys the `dist` output to GitHub Pages.
+Hostinger is connected directly to the GitHub repository. Every push to the `main` branch is built and deployed by Hostinger automatically.
 
-For Hostinger or another static host:
-
-1. Run `npm run build`.
-2. Upload the contents of `dist/` to the hosting web root.
-3. Update `public/robots.txt`, `public/sitemap.xml`, the metadata URLs in `index.html`, and `FORM_SOURCE_URL` in `src/pages/Contact.jsx` to the final custom domain.
+The included `npm run build` command creates the production files in `dist/` and generates crawlable HTML metadata for the important service and city pages.
 
 ## Confirmed business details
 
 - Email: `admin@thebrandadvertising.in`
 - Business hours: Monday to Saturday, 10:00 AM to 7:00 PM
 - Instagram: [the.brandadvertising](https://www.instagram.com/the.brandadvertising?igsh=aWM5eXE4bnl6YzRu)
-- LinkedIn: [Dimcy Aggarwal](https://www.linkedin.com/in/dimcy-aggarwal-aa1a621b7/)
+- LinkedIn: [The Brand Advertising](https://www.linkedin.com/company/the-brand-advertising/)
 - Facebook: [The Brand Advertising](https://www.facebook.com/profile.php?id=61584311907761)
 
 The floating WhatsApp button opens a conversation with the approved business number, `+91 98735 93917`. The number is linked without being displayed inside the floating button.
