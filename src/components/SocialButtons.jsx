@@ -41,8 +41,8 @@ const socialLinks = [
     Icon: InstagramIcon,
   },
   {
-    label: "Connect with Dimcy Aggarwal on LinkedIn",
-    href: "https://www.linkedin.com/in/dimcy-aggarwal-aa1a621b7/",
+    label: "Follow The Brand Advertising on LinkedIn",
+    href: "https://www.linkedin.com/company/the-brand-advertising/",
     className: "social-linkedin",
     name: "LinkedIn",
     Icon: LinkedInIcon,

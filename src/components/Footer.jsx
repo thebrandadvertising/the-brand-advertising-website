@@ -2,11 +2,11 @@ import { Link } from "react-router-dom";
 import { MapPin, Mail, Clock } from "lucide-react";
 
 const services = [
-  { label: "Auto Hood Branding", id: "auto-hood-branding" },
-  { label: "Cab Branding", id: "cab-branding" },
+  { label: "Auto Hood Branding", id: "auto-hood-branding", page: true },
+  { label: "Cab Branding", id: "cab-branding", page: true },
   { label: "Bus Branding", id: "bus-branding" },
   { label: "Van Activation", id: "van-activation" },
-  { label: "Retail Branding", id: "retail-branding" },
+  { label: "Retail Branding", id: "retail-branding", page: true },
   { label: "Wall Painting", id: "wall-painting" },
   { label: "Brand Activation", id: "brand-activation" },
   { label: "Product Sampling", id: "product-sampling" },
@@ -20,6 +20,7 @@ const quickLinks = [
   { label: "About Us", to: "/about" },
   { label: "Services", to: "/services" },
   { label: "Our Campaigns", to: "/campaigns" },
+  { label: "Pan-India Coverage", to: "/pan-india-coverage" },
   { label: "Contact Us", to: "/contact" },
 ];
 
@@ -66,7 +67,7 @@ export default function Footer() {
             {services.map((service) => (
               <li key={service.id}>
                 <Link
-                  to={`/services#${service.id}`}
+                  to={service.page ? `/services/${service.id}` : `/services#${service.id}`}
                   className="hover:text-[#f1c94c] transition-colors"
                   aria-label={`View ${service.label} service`}
                 >

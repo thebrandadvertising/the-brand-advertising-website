@@ -132,10 +132,10 @@ export default function Services() {
                   ))}
                 </ul>
                 <Link
-                  to="/contact"
+                  to={["Auto Hood Branding", "Cab Branding", "Retail Branding"].includes(s.title) ? `/services/${s.title.toLowerCase().replace(/[^a-z0-9]+/g, "-")}` : "/contact"}
                   className="inline-flex items-center gap-2 text-brand-red font-medium text-sm group"
                 >
-                  Enquire About This Service
+                  {["Auto Hood Branding", "Cab Branding", "Retail Branding"].includes(s.title) ? "Explore This Service" : "Enquire About This Service"}
                   <ArrowUpRight size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                 </Link>
               </div>
