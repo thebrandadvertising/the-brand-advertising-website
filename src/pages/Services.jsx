@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { Check, ArrowUpRight } from "lucide-react";
 import RelaxingHero from "../components/RelaxingHero";
 
-import autoHoodBranding from "../assets/services/auto-hood-branding.webp";
 import cabBranding from "../assets/services/cab-branding.webp";
 import busBranding from "../assets/services/bus-branding.webp";
 import vanActivation from "../assets/services/van-activation.webp";
@@ -16,7 +15,6 @@ import roadShows from "../assets/services/road-shows.webp";
 import corporateEvents from "../assets/services/corporate-events.webp";
 
 const serviceImages = {
-  "Auto Hood Branding": autoHoodBranding,
   "Cab Branding": cabBranding,
   "Bus Branding": busBranding,
   "Van Activation": vanActivation,
@@ -44,7 +42,7 @@ const servicePages = {
 const services = [
   {
     title: "Auto Hood Branding",
-    desc: "Bold hood wraps that turn the front of every auto rickshaw into a nonstop moving billboard.",
+    desc: "Campaign artwork fitted to the flexible fabric passenger-canopy hood, planned around selected markets and routes.",
     benefits: ["Large hood advertising format", "Mobile street-level placement", "Custom creative per campaign"],
   },
   {
@@ -121,15 +119,22 @@ export default function Services() {
               }`}
             >
               <div className="rounded-2xl overflow-hidden aspect-[16/10] shadow-card">
-                <img
-                  src={serviceImages[s.title]}
-                  alt={`${s.title} service by The Brand Advertising`}
-                  width="1600"
-                  height="1000"
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-full object-cover"
-                />
+                {s.title === "Auto Hood Branding" ? (
+                  <div className="w-full h-full bg-ink text-white flex flex-col justify-center p-8 md:p-12">
+                    <span className="text-xs tracking-[0.2em] uppercase text-[#f1c94c] mb-4">Auto-rickshaw advertising</span>
+                    <p className="font-display text-2xl md:text-3xl leading-snug">Your message on the fabric passenger-canopy hood.</p>
+                  </div>
+                ) : (
+                  <img
+                    src={serviceImages[s.title]}
+                    alt={`${s.title} service by The Brand Advertising`}
+                    width="1600"
+                    height="1000"
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover"
+                  />
+                )}
               </div>
               <div>
                 <span className="text-xs tracking-[0.2em] uppercase text-brand-red font-medium">

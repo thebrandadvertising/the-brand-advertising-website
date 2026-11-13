@@ -1246,6 +1246,10 @@ footer {
 }
 
 @media (max-width: 640px) {
+  main.auto-hood-page ~ .floating-socials {
+    display: none;
+  }
+
   .floating-socials {
     right: 14px;
     bottom: 18px;

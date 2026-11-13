@@ -4,7 +4,7 @@ import { ArrowRight, Leaf, Route, Sparkles, Wind } from "lucide-react";
 import BrandOrbit from "../components/BrandOrbit";
 import useVideoPlayback from "../hooks/useVideoPlayback";
 
-import forestPoster from "../assets/services/auto-hood-branding.webp";
+const brandPoster = `${import.meta.env.BASE_URL}tba-social-share.png`;
 
 const ease = [0.22, 1, 0.36, 1];
 
@@ -51,7 +51,7 @@ export default function Home() {
   return (
     <main id="main-content" className="nature-home">
       <section className="nature-hero">
-        <img className="nature-video nature-video-poster" src={forestPoster} alt="" aria-hidden="true" width="1600" height="1000" decoding="async" fetchPriority="high" />
+        <img className="nature-video nature-video-poster" src={brandPoster} alt="" aria-hidden="true" width="1730" height="909" decoding="async" fetchPriority="high" />
         <video
           ref={videoRef}
           className="nature-video"
@@ -60,7 +60,7 @@ export default function Home() {
           playsInline
           preload="none"
           disablePictureInPicture
-          poster={forestPoster}
+          poster={brandPoster}
           aria-hidden="true"
           onLoadedData={(event) => event.currentTarget.classList.add("video-ready")}
         >
@@ -138,7 +138,7 @@ export default function Home() {
               environments and through direct on-ground experiences.
             </p>
             <p>
-              Explore TBA&rsquo;s <Link to="/services/auto-hood-branding" className="text-brand-red font-medium">auto hood branding</Link>,{" "}
+              Explore TBA&rsquo;s <Link to="/services/auto-hood-branding" className="text-brand-red font-medium">auto hood branding services</Link>,{" "}
               <Link to="/services/vehicle-branding" className="text-brand-red font-medium">vehicle branding</Link>,{" "}
               <Link to="/services/retail-branding" className="text-brand-red font-medium">retail branding</Link> and{" "}
               <Link to="/services/btl-activation" className="text-brand-red font-medium">BTL activation</Link> services,

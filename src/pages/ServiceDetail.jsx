@@ -1,7 +1,6 @@
 import { Check, ArrowUpRight } from "lucide-react";
 import { Link, Navigate, useParams } from "react-router-dom";
 import Seo from "../components/Seo";
-import autoHoodBranding from "../assets/services/auto-hood-branding.webp";
 import cabBranding from "../assets/services/cab-branding.webp";
 import retailBranding from "../assets/services/retail-branding.webp";
 import busBranding from "../assets/services/bus-branding.webp";
@@ -10,15 +9,17 @@ import brandActivation from "../assets/services/brand-activation.webp";
 const services = {
   "auto-hood-branding": {
     name: "Auto Hood Branding",
-    title: "Auto Hood Branding & Auto Rickshaw Advertising in India | TBA",
-    description: "Pan-India auto hood branding and auto rickshaw advertising. TBA plans, produces and executes branded auto campaigns across metro and regional markets.",
-    image: autoHoodBranding,
-    intro: "Turn everyday auto-rickshaw routes into repeated street-level brand visibility. We plan and execute auto hood branding campaigns across India for launches, retail promotions and local market awareness.",
-    points: ["Pan-India campaign coordination", "Hood creative production and fitting", "City and route-based deployment", "On-ground execution support"],
-    uses: "Auto hood branding is suited to FMCG, retail, education, healthcare, real estate, entertainment and consumer brands that need repeated visibility in busy neighbourhoods.",
+    title: "Auto Hood Branding in Delhi NCR | The Brand Advertising",
+    description: "Explore auto hood branding services in Delhi NCR with The Brand Advertising. Reach local audiences through customized auto-rickshaw advertising campaigns.",
+    intro: "Plan auto-rickshaw advertising around the neighbourhoods your customers travel through. TBA helps shape the brief, adapt artwork for the flexible passenger-canopy hood, and coordinate production and deployment for agreed markets.",
     faq: [
-      ["What is auto hood branding?", "Auto hood branding places campaign artwork on the hood of an auto rickshaw, turning the vehicle into mobile outdoor media as it travels through local routes."],
-      ["Can TBA coordinate campaigns across India?", "Yes. TBA plans Pan-India campaigns according to the requested markets, campaign scale and local availability."],
+      ["What is auto hood branding?", "It is advertising artwork fitted to the flexible fabric passenger-canopy hood of an auto rickshaw. It does not require branding the windshield, driver cabin or metal body."],
+      ["How does auto-rickshaw branding help local businesses?", "An auto can carry a concise message through selected neighbourhoods and everyday journeys. The plan should match the audience, geography and campaign dates; exposure or results cannot be guaranteed."],
+      ["How much does auto hood branding cost in Delhi NCR?", "A quotation depends on the number of autos, campaign duration, selected areas, artwork and production requirements, installation, and any reporting agreed in the brief. Share these details for a tailored estimate."],
+      ["Can campaigns run across multiple cities?", "TBA can plan a multi-city or pan-India brief. Each market and route is confirmed against local availability and the approved campaign scope before commitment."],
+      ["How are branding materials installed?", "Approved artwork is sized for the passenger-canopy fabric, produced for the agreed format and fitted through the campaign's installation process. Final material and fitting specifications are confirmed in the plan."],
+      ["Which businesses can benefit from auto advertising?", "Retailers, consumer brands, education providers, healthcare services, property marketers and event teams may consider it when neighbourhood-level visibility fits their audience."],
+      ["How can I request a quotation?", "Use the enquiry form and include your target cities or areas, dates, audience, approximate number of autos and available artwork. TBA can then discuss feasibility and scope."],
     ],
   },
   "cab-branding": {
@@ -85,6 +86,7 @@ export default function ServiceDetail() {
   const { slug } = useParams();
   const service = services[slug];
   if (!service) return <Navigate to="/services" replace />;
+  const isAutoHood = slug === "auto-hood-branding";
 
   const path = `/services/${slug}`;
   const pageUrl = `https://thebrandadvertising.com${path}`;
@@ -120,7 +122,7 @@ export default function ServiceDetail() {
   };
 
   return (
-    <main id="main-content">
+    <main id="main-content" className={isAutoHood ? "auto-hood-page" : undefined}>
       <Seo title={service.title} description={service.description} path={path} schema={schema} pageType="ItemPage" />
       <section className="pt-40 pb-20 bg-ink text-white">
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
@@ -128,16 +130,112 @@ export default function ServiceDetail() {
             <nav aria-label="Breadcrumb" className="text-sm text-white/55 mb-6">
               <Link to="/">Home</Link> <span aria-hidden="true">/</span> <Link to="/services">Services</Link> <span aria-hidden="true">/</span> <span>{service.name}</span>
             </nav>
-            <p className="text-xs tracking-[0.24em] uppercase text-[#f1c94c] mb-5">Pan-India advertising service</p>
-            <h1 className="font-display font-semibold text-4xl md:text-6xl leading-tight mb-6">{service.name}</h1>
+            <p className="text-xs tracking-[0.24em] uppercase text-[#f1c94c] mb-5">{isAutoHood ? "Delhi NCR and multi-city campaign planning" : "Pan-India advertising service"}</p>
+            <h1 className="font-display font-semibold text-4xl md:text-6xl leading-tight mb-6">{isAutoHood ? "Auto Hood Branding Services in Delhi NCR" : service.name}</h1>
             <p className="text-white/70 text-lg leading-relaxed mb-8">{service.intro}</p>
             <Link to="/contact?quote=1" className="inline-flex items-center gap-2 px-7 py-4 rounded-full bg-[#f1c94c] text-black font-medium">
               Request a Campaign Plan <ArrowUpRight size={17} />
             </Link>
           </div>
-          <img src={service.image} alt={`${service.name} campaign by The Brand Advertising in India`} width="1600" height="1000" className="rounded-2xl w-full aspect-[16/10] object-cover" />
+          {isAutoHood ? (
+            <div className="rounded-2xl border border-white/20 bg-white/5 p-8 md:p-10">
+              <h2 className="font-display font-semibold text-2xl mb-4">The placement, clearly defined</h2>
+              <p className="text-white/75 leading-relaxed">The advertising surface is the flexible fabric hood covering the passenger compartment. Artwork is planned for that canopy—not the windshield, driver cabin or metal body.</p>
+              <p className="text-white/55 text-sm mt-6">Artwork dimensions, production material and fitting method are confirmed for the available canopy before installation.</p>
+            </div>
+          ) : (
+            <img src={service.image} alt={`${service.name} campaign by The Brand Advertising in India`} width="1600" height="1000" className="rounded-2xl w-full aspect-[16/10] object-cover" />
+          )}
         </div>
       </section>
+
+      {isAutoHood && (
+        <>
+          <section className="py-20 bg-white">
+            <div className="max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-12">
+              <div>
+                <h2 className="font-display font-semibold text-3xl mb-5">What is auto hood branding?</h2>
+                <p className="text-charcoal-soft/80 leading-relaxed">Auto hood branding places approved campaign creative on an auto rickshaw's flexible passenger-canopy fabric. It is a form of mobile outdoor advertising for messages that can be understood quickly at street level. The hood is distinct from the windshield, driver cabin and metal body.</p>
+              </div>
+              <div>
+                <h2 className="font-display font-semibold text-3xl mb-5">How auto-rickshaw advertising works</h2>
+                <p className="text-charcoal-soft/80 leading-relaxed">A client shares the audience, markets, dates and message. The campaign team reviews suitable local areas, adapts the creative to the hood's size and viewing distance, confirms the available fleet and installation plan, then coordinates deployment for the agreed scope.</p>
+              </div>
+            </div>
+          </section>
+
+          <section className="py-20 bg-cream">
+            <div className="max-w-5xl mx-auto px-6">
+              <h2 className="font-display font-semibold text-3xl mb-5">Benefits and branding options</h2>
+              <p className="text-charcoal-soft/80 leading-relaxed max-w-3xl mb-8">The format can put a short brand message on vehicles travelling through relevant neighbourhoods. It may complement retail launches, events or other local media, but reach and response depend on the actual routes, duration and creative.</p>
+              <div className="grid md:grid-cols-2 gap-6">
+                <article className="rounded-2xl bg-white p-7">
+                  <h3 className="font-semibold text-xl mb-3">Creative made for the canopy</h3>
+                  <p className="text-charcoal-soft/80 leading-relaxed">A campaign may use a logo, offer, launch message or simple call to action. Artwork dimensions, material and fitting method are confirmed for the available fabric hood before production.</p>
+                </article>
+                <article className="rounded-2xl bg-white p-7">
+                  <h3 className="font-semibold text-xl mb-3">A focused local plan</h3>
+                  <p className="text-charcoal-soft/80 leading-relaxed">Choose areas where the intended audience lives, shops or travels. The final vehicle count, locations and schedule depend on availability and the approved brief.</p>
+                </article>
+              </div>
+            </div>
+          </section>
+
+          <section className="py-20 bg-white">
+            <div className="max-w-5xl mx-auto px-6">
+              <h2 className="font-display font-semibold text-3xl mb-5">From brief to installation and reporting</h2>
+              <ol className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                {[
+                  ["Plan", "Define the audience, target areas, dates and campaign objective."],
+                  ["Confirm", "Check fleet and route availability, hood specifications and the agreed scope."],
+                  ["Produce and fit", "Prepare approved artwork for the fabric canopy and coordinate installation."],
+                  ["Review", "Agree in advance what deployment updates or completion records the campaign needs."],
+                ].map(([title, text], index) => (
+                  <li key={title} className="rounded-2xl border border-charcoal/10 p-6">
+                    <span className="text-xs tracking-[0.2em] uppercase text-brand-red">Step {index + 1}</span>
+                    <h3 className="font-display font-semibold text-xl mt-3 mb-2">{title}</h3>
+                    <p className="text-sm text-charcoal-soft/75 leading-relaxed">{text}</p>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </section>
+
+          <section className="py-20 bg-mist">
+            <div className="max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-12">
+              <div>
+                <h2 className="font-display font-semibold text-3xl mb-5">Auto hood branding in Delhi, Gurgaon and Noida</h2>
+                <p className="text-charcoal-soft/80 leading-relaxed">For a Delhi NCR brief, share the Delhi, Gurugram (Gurgaon) or Noida neighbourhoods that matter to your audience. TBA can assess a local plan across these markets; specific routes, fleet availability and permissions must be confirmed before a campaign is booked.</p>
+              </div>
+              <div>
+                <h2 className="font-display font-semibold text-3xl mb-5">Multi-city and pan-India execution</h2>
+                <p className="text-charcoal-soft/80 leading-relaxed">TBA also coordinates broader advertising campaigns across India. For auto hood advertising, each requested city is scoped separately so production, local availability and installation can be planned realistically. <Link to="/pan-india-coverage" className="text-brand-red font-medium">Explore campaign coverage</Link>.</p>
+              </div>
+            </div>
+          </section>
+
+          <section className="py-20 bg-white">
+            <div className="max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-12">
+              <div>
+                <h2 className="font-display font-semibold text-3xl mb-5">Who can use auto advertising?</h2>
+                <p className="text-charcoal-soft/80 leading-relaxed">Retail chains, consumer products, education providers, healthcare services, property launches and event promoters can consider auto advertising when local visibility supports their campaign objective. The right format depends on the audience and message, not the industry label alone.</p>
+              </div>
+              <div>
+                <h2 className="font-display font-semibold text-3xl mb-5">What affects campaign cost?</h2>
+                <p className="text-charcoal-soft/80 leading-relaxed">The quote depends on city and area selection, number of autos, campaign duration, artwork adaptation, fabric and print specifications, installation, and agreed reporting. TBA can price the scope after these details are confirmed; no fixed rate or outcome is implied.</p>
+              </div>
+            </div>
+          </section>
+
+          <section className="py-20 bg-cream">
+            <div className="max-w-4xl mx-auto px-6 text-center">
+              <h2 className="font-display font-semibold text-3xl mb-5">Plan an auto hood campaign with TBA</h2>
+              <p className="text-charcoal-soft/80 leading-relaxed mb-8">TBA brings the market brief, canopy artwork, production and on-ground coordination into one campaign discussion. Tell us where and when you want to advertise, whom you want to reach, and whether artwork is ready.</p>
+              <Link to="/contact?quote=1" className="inline-flex items-center gap-2 px-7 py-4 rounded-full bg-brand-red text-white font-medium">Request an auto hood branding quotation <ArrowUpRight size={17} /></Link>
+            </div>
+          </section>
+        </>
+      )}
 
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-6">
@@ -153,7 +251,7 @@ export default function ServiceDetail() {
         </div>
       </section>
 
-      <section className="py-20 bg-cream">
+      {!isAutoHood && <section className="py-20 bg-cream">
         <div className="max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-14">
           <div>
             <h2 className="font-display font-semibold text-3xl mb-5">Campaign support from planning to execution</h2>
@@ -163,9 +261,9 @@ export default function ServiceDetail() {
             {service.points.map((point) => <li key={point} className="flex gap-3 items-center"><Check className="text-brand-red" size={19} />{point}</li>)}
           </ul>
         </div>
-      </section>
+      </section>}
 
-      <section className="py-20 bg-white" aria-labelledby="service-process-title">
+      {!isAutoHood && <section className="py-20 bg-white" aria-labelledby="service-process-title">
         <div className="max-w-5xl mx-auto px-6">
           <h2 id="service-process-title" className="font-display font-semibold text-3xl mb-4">
             How TBA plans a {service.name.toLowerCase()} campaign
@@ -188,15 +286,15 @@ export default function ServiceDetail() {
             ))}
           </ol>
         </div>
-      </section>
+      </section>}
 
-      <section className="py-20 bg-mist text-center">
+      {!isAutoHood && <section className="py-20 bg-mist text-center">
         <div className="max-w-3xl mx-auto px-6">
           <h2 className="font-display font-semibold text-3xl mb-5">Available across India</h2>
           <p className="text-charcoal-soft/80 mb-8">Plan campaigns across metros, state capitals and regional markets through one advertising partner.</p>
           <Link to="/pan-india-coverage" className="text-brand-red font-medium">Explore our pan-India coverage →</Link>
         </div>
-      </section>
+      </section>}
 
       <section className="py-20 bg-white" aria-labelledby="related-services-title">
         <div className="max-w-5xl mx-auto px-6">
