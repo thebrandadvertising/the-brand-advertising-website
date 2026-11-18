@@ -94,7 +94,7 @@ export default function Home() {
             className="nature-intro"
           >
             The Brand Advertising is a Pan-India advertising and brand
-            activation company specialising in vehicle, retail and on-ground campaigns.
+            activation company specialising in vehicle branding, retail and on-ground campaigns.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 18 }}
