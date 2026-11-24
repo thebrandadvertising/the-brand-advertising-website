@@ -24,54 +24,86 @@ const services = {
   },
   "cab-branding": {
     name: "Cab Branding",
-    title: "Cab Branding & Taxi Advertising Agency in India | TBA",
-    description: "Pan-India cab branding and taxi advertising campaigns for brands seeking high-visibility mobile outdoor media across major Indian cities.",
+    heading: "Cab Branding and Taxi Advertising",
+    title: "Cab Branding & Taxi Advertising in India | TBA",
+    description: "Explore cab branding formats, market planning, production and installation. Share target cities, dates and a fleet brief for a scoped campaign proposal.",
     image: cabBranding,
-    intro: "Put your campaign on vehicles that travel through business districts, residential areas and high-footfall routes. TBA manages cab branding campaigns from production through on-ground execution.",
+    intro: "Cab branding puts approved campaign artwork on taxis travelling through selected urban markets. TBA plans the brief around the audience, city, vehicle surface and campaign period before coordinating production and installation.",
     points: ["Full and partial cab branding", "Campaigns across major Indian cities", "Professional print and installation", "Flexible fleet and market planning"],
-    uses: "Cab advertising works well for apps, financial services, property launches, consumer products, events and brands seeking sustained urban visibility.",
+    uses: "Cab advertising can support a launch or awareness brief when moving vehicles fit the intended audience and market. The available fleet, permitted surfaces and route plan are checked for each campaign.",
+    detail: [
+      ["Choose a cab branding format", "A full or partial exterior treatment should match the message, viewing distance, available vehicle surface and campaign budget. The final artwork size and permitted placement are confirmed with the fleet and market before production."],
+      ["Plan the market and installation", "Share target cities, audience, dates and an approximate fleet requirement. TBA can then assess vehicle availability, artwork adaptation, production and fitting for the agreed scope; routes and exposure cannot be guaranteed."],
+      ["What shapes a cab advertising quote?", "Fleet size, city, campaign period, branding surface, artwork preparation, print material and installation all affect the scope. A tailored estimate follows a confirmed brief rather than an assumed per-cab rate."],
+    ],
     faq: [
       ["What is cab branding?", "Cab branding applies campaign creative to the exterior or selected surfaces of taxis and cabs for repeated visibility on urban routes."],
       ["What information is needed for a cab campaign plan?", "Share the target markets, preferred dates, campaign objective and approximate fleet requirement so TBA can assess the execution plan."],
+      ["Can I choose full or partial cab branding?", "TBA can discuss full and partial formats. The suitable option depends on the available fleet, permitted surfaces, artwork and approved campaign scope."],
+      ["How is cab branding priced?", "A quote depends on the market, fleet size, duration, selected surfaces, production and installation. Share those details for a scoped proposal."],
     ],
   },
   "retail-branding": {
     name: "Retail Branding",
-    title: "Retail Branding & In-Store Branding Agency in India | TBA",
-    description: "Retail branding, storefront visibility and in-store campaign execution across India. Create a consistent brand experience at the point of purchase.",
+    heading: "Retail Branding and In-Store Campaigns",
+    title: "Retail Branding & In-Store Campaigns | TBA India",
+    description: "Plan storefront, in-store and point-of-sale branding for one outlet or a coordinated rollout. Share locations, formats and dates for a scoped proposal.",
     image: retailBranding,
-    intro: "Build recognition where buying decisions happen. TBA creates and executes retail branding for storefronts, displays and customer touchpoints across Indian markets.",
+    intro: "Retail branding carries a campaign message from the storefront into customer-facing spaces. TBA coordinates approved graphics and point-of-sale material around the outlets, surfaces and rollout dates in the brief.",
     points: ["Storefront and in-store branding", "Point-of-sale campaign material", "Multi-location rollout support", "Production and installation coordination"],
-    uses: "Retail branding supports product launches, seasonal promotions, dealer networks, new-store openings and consistent visibility across multiple outlets.",
+    uses: "Retail branding can support a launch, promotion or multi-outlet campaign. The suitable material and placement depend on each site, brand guidelines and the approved scope.",
+    detail: [
+      ["Storefront and in-store touchpoints", "A storefront helps people identify the brand before entering; in-store graphics and point-of-sale material support the message closer to a buying decision. Plan each placement for its purpose rather than repeating the same artwork everywhere."],
+      ["Coordinate a multi-outlet rollout", "A useful brief lists outlets, target markets, required surfaces, opening or promotion dates and artwork. Site dimensions and local availability need confirmation before production and installation are scheduled."],
+      ["Request a retail branding estimate", "The number of locations, site measurements, materials, print quantities, installation and timing shape the proposal. TBA can scope these inputs without assuming a fixed rate or identical treatment for every store."],
+    ],
     faq: [
       ["What does retail branding include?", "Retail branding can include storefront visibility, in-store graphics, displays and point-of-sale campaign materials."],
       ["Can retail branding be rolled out across multiple outlets?", "Yes. TBA can coordinate production and installation for multi-location campaigns based on the approved scope and market availability."],
+      ["What should a multi-store brief include?", "Include the outlet list, markets, target dates, branding surfaces and available artwork. Site dimensions and production requirements can then be checked."],
+      ["How are retail branding costs estimated?", "Costs depend on the locations, material and print specifications, quantities, installation and campaign schedule. TBA prepares a quote after these details are confirmed."],
     ],
   },
   "vehicle-branding": {
     name: "Vehicle Branding",
-    title: "Vehicle Branding Company in India | TBA",
-    description: "Vehicle branding services across India for auto rickshaws, cabs, buses and campaign vans, coordinated from planning through on-ground execution.",
+    heading: "Vehicle Branding Services",
+    title: "Vehicle Branding Services in India | TBA",
+    description: "Compare auto, cab, bus and van branding for selected markets. Learn how TBA scopes artwork, availability, production and installation before a quote.",
     image: busBranding,
-    intro: "Use moving vehicles to carry a clear campaign message through everyday routes. TBA coordinates auto, cab, bus and van branding for brands planning city, regional or Pan-India visibility.",
+    intro: "Vehicle branding uses moving surfaces to carry a concise campaign message through selected markets. TBA helps choose between auto, cab, bus and van formats according to the audience, artwork and practical campaign scope.",
     points: ["Auto, cab, bus and van formats", "Creative adaptation for vehicle surfaces", "Production and installation coordination", "Market-based campaign planning"],
-    uses: "Vehicle branding supports launches, awareness campaigns, retail promotions and sustained outdoor visibility for brands that want their message to travel with their audience.",
+    uses: "A vehicle campaign may support a launch, local awareness or a retail promotion. Format availability, permissions and deployment details are confirmed for the requested market before commitment.",
+    detail: [
+      ["Match the vehicle to the objective", "An auto hood uses the passenger-canopy fabric for a compact street-level message. A cab offers different exterior surfaces; a bus or van may suit a different route or activation brief. The right choice follows the audience and market, not vehicle size alone."],
+      ["Plan artwork and deployment", "Each vehicle has different dimensions and fitting constraints. Confirm the market, dates, vehicle count, surface, approved artwork and installation needs before a production plan is finalized."],
+      ["Compare scope before requesting a quote", "The format, quantity, campaign duration, materials and installation affect cost. A proposal should also identify which fleet and local permissions are available for the requested market."],
+    ],
     faq: [
       ["Which vehicles can be branded?", "TBA works with auto rickshaw hoods, cabs, buses and campaign vans, subject to the campaign market and available formats."],
       ["Does TBA manage installation?", "TBA coordinates production, fitting and deployment as part of the approved vehicle branding campaign scope."],
+      ["How is vehicle branding different from cab branding?", "Vehicle branding covers several formats, while cab branding focuses on taxis. The cab page explains that format in more detail."],
+      ["What determines a vehicle branding quotation?", "The vehicle type, number of units, city, duration, artwork, material and installation requirements determine the scope of a quotation."],
     ],
   },
   "btl-activation": {
     name: "BTL Activation",
-    title: "BTL Activation & Experiential Marketing Agency in India | TBA",
-    description: "Pan-India BTL activation and experiential marketing for product sampling, mall promotions, roadshows and direct consumer engagement.",
+    heading: "BTL Activation and On-Ground Campaigns",
+    title: "BTL Activation & Brand Experiences in India | TBA",
+    description: "Explore on-ground brand activation, product sampling, mall promotions and roadshows. Plan the audience, venue, dates and execution scope with TBA.",
     image: brandActivation,
-    intro: "Create direct, memorable contact between a brand and its audience. TBA plans and executes BTL activations through sampling, mall promotions, roadshows and other on-ground experiences.",
+    intro: "BTL activation brings a brand into direct contact with people in a selected setting. TBA plans on-ground formats such as product sampling, mall promotions and roadshows around the audience, venue, message and campaign dates.",
     points: ["On-ground campaign planning", "Product sampling and demonstrations", "Mall promotions and roadshows", "Production and execution coordination"],
-    uses: "BTL activation is useful when a campaign needs product trial, direct engagement, local awareness or a physical brand experience alongside broader media activity.",
+    uses: "An activation may suit a brief that calls for product trial, a demonstration or a conversation. The format, venue permissions and staffing requirements depend on the approved plan.",
+    detail: [
+      ["Choose the interaction, then the format", "Sampling gives people a chance to try a product; a demonstration explains its use; mall promotions and roadshows create different kinds of contact. Select a format for the audience and objective rather than using the same setup in every market."],
+      ["Scope the venue and on-ground plan", "Share target locations, dates, expected format, campaign materials and any venue requirements. The team can then check local availability, permissions and execution needs before confirming a plan."],
+      ["What affects an activation quote?", "Duration, locations, venue, staffing, materials, sampling quantities and reporting requirements can change the scope. TBA can prepare a proposal once these inputs are clear; attendance and outcomes are not guaranteed."],
+    ],
     faq: [
       ["What is BTL activation?", "BTL activation is direct, on-ground marketing designed to let people experience, try or interact with a brand in a selected environment."],
       ["Which activation formats does TBA support?", "TBA supports product sampling, mall promotions, roadshows, van activations and other campaign formats listed on the services page."],
+      ["How do I choose an activation format?", "Start with the audience and the interaction you want: product trial, demonstration or conversation. The venue, permissions and campaign dates then guide the format."],
+      ["What information is needed for a BTL quotation?", "Share target markets, venues, dates, activation format, staffing and material needs, and any sampling quantities. TBA can use that brief to assess feasibility and cost."],
     ],
   },
 };
@@ -131,7 +163,7 @@ export default function ServiceDetail() {
               <Link to="/">Home</Link> <span aria-hidden="true">/</span> <Link to="/services">Services</Link> <span aria-hidden="true">/</span> <span>{service.name}</span>
             </nav>
             <p className="text-xs tracking-[0.24em] uppercase text-[#f1c94c] mb-5">{isAutoHood ? "Delhi NCR and multi-city campaign planning" : "Pan-India advertising service"}</p>
-            <h1 className="font-display font-semibold text-4xl md:text-6xl leading-tight mb-6">{isAutoHood ? "Auto Hood Branding Services in Delhi NCR" : service.name}</h1>
+            <h1 className="font-display font-semibold text-4xl md:text-6xl leading-tight mb-6">{isAutoHood ? "Auto Hood Branding Services in Delhi NCR" : service.heading}</h1>
             <p className="text-white/70 text-lg leading-relaxed mb-8">{service.intro}</p>
             <Link to="/contact?quote=1" className="inline-flex items-center gap-2 px-7 py-4 rounded-full bg-[#f1c94c] text-black font-medium">
               Request a Campaign Plan <ArrowUpRight size={17} />
@@ -144,7 +176,7 @@ export default function ServiceDetail() {
               <p className="text-white/55 text-sm mt-6">Artwork dimensions, production material and fitting method are confirmed for the available canopy before installation.</p>
             </div>
           ) : (
-            <img src={service.image} alt={`${service.name} campaign by The Brand Advertising in India`} width="1600" height="1000" className="rounded-2xl w-full aspect-[16/10] object-cover" />
+            <img src={service.image} alt={`${service.name} advertising format illustration`} width="1600" height="1000" className="rounded-2xl w-full aspect-[16/10] object-cover" />
           )}
         </div>
       </section>
@@ -237,6 +269,21 @@ export default function ServiceDetail() {
         </>
       )}
 
+      {!isAutoHood && <section className="py-20 bg-white">
+        <div className="max-w-5xl mx-auto px-6 grid md:grid-cols-3 gap-8">
+          {service.detail.map(([heading, copy]) => (
+            <article key={heading}>
+              <h2 className="font-display font-semibold text-2xl mb-4">{heading}</h2>
+              <p className="text-charcoal-soft/80 leading-relaxed">{copy}</p>
+            </article>
+          ))}
+        </div>
+        {slug === "vehicle-branding" && <p className="max-w-5xl mx-auto px-6 mt-8 text-charcoal-soft/80 leading-relaxed">For format-specific planning, read about <Link to="/services/auto-hood-branding" className="text-brand-red font-medium">auto hood branding</Link> or <Link to="/services/cab-branding" className="text-brand-red font-medium">cab branding and taxi advertising</Link>.</p>}
+        {slug === "cab-branding" && <p className="max-w-5xl mx-auto px-6 mt-8 text-charcoal-soft/80 leading-relaxed">Comparing several moving formats? See <Link to="/services/vehicle-branding" className="text-brand-red font-medium">vehicle branding services</Link> before choosing a fleet.</p>}
+        {slug === "retail-branding" && <p className="max-w-5xl mx-auto px-6 mt-8 text-charcoal-soft/80 leading-relaxed">For direct customer participation alongside store graphics, explore <Link to="/services/btl-activation" className="text-brand-red font-medium">BTL activation</Link>.</p>}
+        {slug === "btl-activation" && <p className="max-w-5xl mx-auto px-6 mt-8 text-charcoal-soft/80 leading-relaxed">See how on-ground campaigns have been presented in <Link to="/campaigns" className="text-brand-red font-medium">TBA's documented campaign work</Link>.</p>}
+      </section>}
+
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="font-display font-semibold text-3xl text-center mb-10">Frequently asked questions</h2>
@@ -290,8 +337,8 @@ export default function ServiceDetail() {
 
       {!isAutoHood && <section className="py-20 bg-mist text-center">
         <div className="max-w-3xl mx-auto px-6">
-          <h2 className="font-display font-semibold text-3xl mb-5">Available across India</h2>
-          <p className="text-charcoal-soft/80 mb-8">Plan campaigns across metros, state capitals and regional markets through one advertising partner.</p>
+          <h2 className="font-display font-semibold text-3xl mb-5">Plan for selected markets across India</h2>
+          <p className="text-charcoal-soft/80 mb-8">Share your target cities so the available format, fleet or venue can be checked before a campaign is confirmed.</p>
           <Link to="/pan-india-coverage" className="text-brand-red font-medium">Explore our pan-India coverage →</Link>
         </div>
       </section>}

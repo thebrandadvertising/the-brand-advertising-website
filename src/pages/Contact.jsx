@@ -107,7 +107,7 @@ export default function Contact() {
     <main id="main-content">
       <RelaxingHero
         eyebrow="Contact TBA"
-        title="Let’s get your brand moving."
+        title="Plan an advertising campaign with TBA."
         video={`${import.meta.env.BASE_URL}contact-background.mp4`}
       />
 
@@ -234,7 +234,7 @@ export default function Contact() {
                     onChange={handleChange}
                     rows={4}
                     className="w-full border-b border-charcoal/15 focus:border-brand-red outline-none py-2.5 bg-transparent transition-colors resize-none"
-                    placeholder="Tell us about your campaign..."
+                    placeholder="Tell us your target markets, dates, audience, format and approximate campaign scale..."
                   />
                 </div>
 

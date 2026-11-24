@@ -76,16 +76,16 @@ export default function Home() {
             transition={{ duration: 0.7, delay: 0.35 }}
             className="nature-kicker"
           >
-            Ideas in motion · Built for attention
+            Outdoor advertising and brand activation across India
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 36 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.1, delay: 0.5, ease }}
           >
-            Let your brand
+            Outdoor advertising
             <br />
-            <em>move naturally.</em>
+            <em>that moves brands.</em>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 18 }}
@@ -139,6 +139,7 @@ export default function Home() {
             </p>
             <p>
               Explore TBA&rsquo;s <Link to="/services/auto-hood-branding" className="text-brand-red font-medium">auto hood branding services</Link>,{" "}
+              <Link to="/services/cab-branding" className="text-brand-red font-medium">cab branding</Link>,{" "}
               <Link to="/services/vehicle-branding" className="text-brand-red font-medium">vehicle branding</Link>,{" "}
               <Link to="/services/retail-branding" className="text-brand-red font-medium">retail branding</Link> and{" "}
               <Link to="/services/btl-activation" className="text-brand-red font-medium">BTL activation</Link> services,

@@ -9,15 +9,21 @@ const regions = [
 ];
 
 export default function Coverage() {
-  const description = "The Brand Advertising executes auto hood branding, cab branding, retail branding and outdoor campaigns across major cities and regional markets in India.";
+  const description = "Plan advertising and brand activations across selected Indian markets. TBA scopes local availability, production and coordination before confirming each campaign.";
   return (
     <main id="main-content">
-      <Seo title="Pan-India Advertising Campaign Coverage | The Brand Advertising" description={description} path="/pan-india-coverage" pageType="CollectionPage" />
+      <Seo title="Pan-India Advertising Campaign Coverage | TBA" description={description} path="/pan-india-coverage" pageType="CollectionPage" />
       <section className="pt-40 pb-20 bg-ink text-white text-center">
         <div className="max-w-4xl mx-auto px-6">
           <p className="text-xs tracking-[0.24em] uppercase text-[#f1c94c] mb-5">Pan-India campaign execution</p>
-          <h1 className="font-display font-semibold text-4xl md:text-6xl mb-6">Advertising that moves across India</h1>
+          <h1 className="font-display font-semibold text-4xl md:text-6xl mb-6">Pan-India advertising campaign coverage</h1>
           <p className="text-white/70 text-lg leading-relaxed">We coordinate vehicle branding, retail visibility and on-ground campaigns across metros, state capitals and regional markets.</p>
+        </div>
+      </section>
+      <section className="py-16 bg-white">
+        <div className="max-w-5xl mx-auto px-6">
+          <h2 className="font-display font-semibold text-3xl mb-5">Plan each market around the format</h2>
+          <p className="text-charcoal-soft/80 leading-relaxed">A multi-city brief should identify the audience, target locations, campaign dates and the advertising format. <Link to="/services" className="text-brand-red font-medium">Compare TBA's services</Link> before selecting markets; fleet, venue and installation availability can vary by city and must be confirmed for the approved scope.</p>
         </div>
       </section>
       <section className="py-20 bg-cream">

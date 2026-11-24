@@ -21,7 +21,7 @@ export default function About() {
     <main id="main-content">
       <RelaxingHero
         eyebrow="About TBA"
-        title="Ideas should move with people."
+        title="The Brand Advertising: ideas that move with people."
         video={`${import.meta.env.BASE_URL}about-background.mp4`}
       />
 
@@ -38,6 +38,9 @@ export default function About() {
               We believe every road can become a marketing opportunity, every
               vehicle can become a moving billboard, and every on-ground
               interaction can create trust and recall.
+            </p>
+            <p className="text-charcoal-soft/90 leading-relaxed mt-4">
+              A campaign starts with the audience, target markets and intended format. Explore our <Link to="/services" className="text-brand-red font-medium">advertising services</Link>, see <Link to="/campaigns" className="text-brand-red font-medium">documented campaign work</Link>, or <Link to="/contact?quote=1" className="text-brand-red font-medium">share a brief</Link> for a scoped plan.
             </p>
           </div>
           <motion.div

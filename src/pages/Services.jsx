@@ -102,7 +102,19 @@ const services = [
 export default function Services() {
   return (
     <main id="main-content">
-      <RelaxingHero eyebrow="Our services" title="Every service, one goal: visibility that moves." video={`${import.meta.env.BASE_URL}services-background.mp4`} />
+      <RelaxingHero eyebrow="Our services" title="Outdoor advertising and brand activation services" video={`${import.meta.env.BASE_URL}services-background.mp4`} />
+
+      <section className="py-20 bg-white">
+        <div className="max-w-5xl mx-auto px-6">
+          <h2 className="font-display font-semibold text-3xl mb-5">Choose a format for your campaign objective</h2>
+          <p className="text-charcoal-soft/80 leading-relaxed mb-5">
+            TBA plans vehicle branding, retail visibility and on-ground activations for selected Indian markets. A useful starting point is the audience you want to reach, where they travel or shop, and whether your campaign needs a moving message or direct participation.
+          </p>
+          <p className="text-charcoal-soft/80 leading-relaxed">
+            Compare <Link to="/services/vehicle-branding" className="text-brand-red font-medium">vehicle branding formats</Link> for mobile outdoor visibility, <Link to="/services/retail-branding" className="text-brand-red font-medium">retail branding</Link> for storefront and in-store touchpoints, or <Link to="/services/btl-activation" className="text-brand-red font-medium">BTL activation</Link> for a physical brand experience. Each proposal depends on the market, available format, dates and approved campaign scope.
+          </p>
+        </div>
+      </section>
 
       <section className="bg-cream">
         {services.map((s, i) => (
@@ -123,7 +135,7 @@ export default function Services() {
               <div className="rounded-2xl overflow-hidden aspect-[16/10] shadow-card">
                 <img
                   src={serviceImages[s.title]}
-                  alt={`${s.title} service by The Brand Advertising`}
+                  alt={`${s.title} advertising format offered by The Brand Advertising`}
                   width="1600"
                   height="1000"
                   loading="lazy"
@@ -149,7 +161,7 @@ export default function Services() {
                   to={servicePages[s.title] || "/contact"}
                   className="inline-flex items-center gap-2 text-brand-red font-medium text-sm group"
                 >
-                  {servicePages[s.title] ? "Explore This Service" : "Enquire About This Service"}
+                  {servicePages[s.title] ? `Explore ${s.title}` : `Enquire about ${s.title}`}
                   <ArrowUpRight size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                 </Link>
               </div>

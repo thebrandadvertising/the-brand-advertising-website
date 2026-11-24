@@ -4,17 +4,17 @@ import { render } from "../.ssr/entry-server.js";
 
 const siteUrl = "https://thebrandadvertising.com";
 const pages = [
-  ["/", "The Brand Advertising | Pan-India Outdoor & Vehicle Branding", "The Brand Advertising is a pan-India marketing agency for auto hood branding, cab branding, retail branding, bus branding, wall painting and activations."],
-  ["/about", "About The Brand Advertising | Pan-India Marketing Agency", "Meet The Brand Advertising, a pan-India agency creating vehicle branding, outdoor media, retail branding and on-ground brand experiences."],
-  ["/services", "Advertising & Branding Services Across India | TBA", "Explore auto hood branding, cab and bus branding, retail branding, wall painting, product sampling, roadshows and corporate events across India."],
+  ["/", "Outdoor Advertising Agency in India | The Brand Advertising", "Plan outdoor advertising, vehicle branding, retail campaigns and on-ground activations with The Brand Advertising. Share your markets and campaign goals."],
+  ["/about", "About The Brand Advertising | Outdoor & Brand Activation", "Learn how The Brand Advertising plans vehicle branding, retail campaigns and on-ground activations across India. Meet the team and explore our work."],
+  ["/services", "Outdoor Advertising & Brand Activation Services | TBA", "Compare vehicle branding, retail branding and on-ground activation formats. Explore campaign options and request a plan for your target markets."],
   ["/services/auto-hood-branding", "Auto Hood Branding in Delhi NCR | The Brand Advertising", "Explore auto hood branding services in Delhi NCR with The Brand Advertising. Reach local audiences through customized auto-rickshaw advertising campaigns."],
-  ["/services/cab-branding", "Cab Branding & Taxi Advertising Agency in India | TBA", "Pan-India cab branding and taxi advertising campaigns for brands seeking high-visibility mobile outdoor media across major Indian cities."],
-  ["/services/retail-branding", "Retail Branding & In-Store Branding Agency in India | TBA", "Retail branding, storefront visibility and in-store campaign execution across India. Create a consistent brand experience at the point of purchase."],
-  ["/services/vehicle-branding", "Vehicle Branding Company in India | TBA", "Vehicle branding services across India for auto rickshaws, cabs, buses and campaign vans, coordinated from planning through on-ground execution."],
-  ["/services/btl-activation", "BTL Activation & Experiential Marketing Agency in India | TBA", "Pan-India BTL activation and experiential marketing for product sampling, mall promotions, roadshows and direct consumer engagement."],
-  ["/pan-india-coverage", "Pan-India Advertising Campaign Coverage | The Brand Advertising", "The Brand Advertising executes auto hood branding, cab branding, retail branding and outdoor campaigns across major cities and regional markets in India."],
-  ["/campaigns", "Advertising Campaigns & Brand Activations | TBA India", "Explore outdoor advertising, vehicle branding and on-ground campaign work delivered by The Brand Advertising across India."],
-  ["/contact", "Contact The Brand Advertising | Plan a Pan-India Campaign", "Contact The Brand Advertising for auto hood branding, cab branding, retail branding and campaign execution across India."],
+  ["/services/cab-branding", "Cab Branding & Taxi Advertising in India | TBA", "Explore cab branding formats, market planning, production and installation. Share target cities, dates and a fleet brief for a scoped campaign proposal."],
+  ["/services/retail-branding", "Retail Branding & In-Store Campaigns | TBA India", "Plan storefront, in-store and point-of-sale branding for one outlet or a coordinated rollout. Share locations, formats and dates for a scoped proposal."],
+  ["/services/vehicle-branding", "Vehicle Branding Services in India | TBA", "Compare auto, cab, bus and van branding for selected markets. Learn how TBA scopes artwork, availability, production and installation before a quote."],
+  ["/services/btl-activation", "BTL Activation & Brand Experiences in India | TBA", "Explore on-ground brand activation, product sampling, mall promotions and roadshows. Plan the audience, venue, dates and execution scope with TBA."],
+  ["/pan-india-coverage", "Pan-India Advertising Campaign Coverage | TBA", "Plan advertising and brand activations across selected Indian markets. TBA scopes local availability, production and coordination before confirming each campaign."],
+  ["/campaigns", "Advertising Campaigns & Brand Activations | TBA", "Explore The Brand Advertising's documented on-ground campaign work and discuss a similar brief for your markets, audience and campaign goals."],
+  ["/contact", "Contact The Brand Advertising | Plan a Campaign", "Tell TBA your target market, advertising format, audience and dates to start a scoped vehicle branding, retail or activation campaign discussion."],
 ];
 
 const template = await readFile("dist/index.html", "utf8");

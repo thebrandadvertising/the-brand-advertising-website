@@ -56,15 +56,15 @@ export default function Campaigns() {
   return (
     <main id="main-content" className="campaign-page">
       <Seo
-        title="Advertising Campaigns & Brand Activations | TBA India"
-        description="Explore outdoor advertising, vehicle branding and on-ground campaign work delivered by The Brand Advertising across India."
+        title="Advertising Campaigns & Brand Activations | TBA"
+        description="Explore The Brand Advertising's documented on-ground campaign work and discuss a similar brief for your markets, audience and campaign goals."
         path="/campaigns"
         pageType="CollectionPage"
         schema={campaignSchema}
       />
       <RelaxingHero
         eyebrow="Campaign stories"
-        title="Real people. Remarkable on-ground energy."
+        title="Advertising campaigns and brand activations"
         video={`${import.meta.env.BASE_URL}campaigns-background.mp4`}
       />
 

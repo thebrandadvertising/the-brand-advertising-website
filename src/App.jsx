@@ -16,10 +16,20 @@ import MotionExperience from "./components/MotionExperience";
 import Seo from "./components/Seo";
 
 const pageSeo = {
-  "/": ["The Brand Advertising | Pan-India Outdoor & Vehicle Branding", "The Brand Advertising is a pan-India marketing agency for auto hood branding, cab branding, retail branding, bus branding, wall painting and activations.", "WebPage"],
-  "/about": ["About The Brand Advertising | Pan-India Marketing Agency", "Meet The Brand Advertising, a pan-India agency creating vehicle branding, outdoor media, retail branding and on-ground brand experiences.", "AboutPage"],
-  "/services": ["Advertising & Branding Services Across India | TBA", "Explore auto hood branding, cab and bus branding, retail branding, wall painting, product sampling, roadshows and corporate events across India.", "CollectionPage"],
-  "/contact": ["Contact The Brand Advertising | Plan a Pan-India Campaign", "Contact The Brand Advertising for auto hood branding, cab branding, retail branding and campaign execution across India.", "ContactPage"],
+  "/": ["Outdoor Advertising Agency in India | The Brand Advertising", "Plan outdoor advertising, vehicle branding, retail campaigns and on-ground activations with The Brand Advertising. Share your markets and campaign goals.", "WebPage"],
+  "/about": ["About The Brand Advertising | Outdoor & Brand Activation", "Learn how The Brand Advertising plans vehicle branding, retail campaigns and on-ground activations across India. Meet the team and explore our work.", "AboutPage"],
+  "/services": ["Outdoor Advertising & Brand Activation Services | TBA", "Compare vehicle branding, retail branding and on-ground activation formats. Explore campaign options and request a plan for your target markets.", "CollectionPage", {
+    "@type": "ItemList",
+    name: "The Brand Advertising services",
+    itemListElement: [
+      ["Auto Hood Branding", "/services/auto-hood-branding"],
+      ["Cab Branding", "/services/cab-branding"],
+      ["Vehicle Branding", "/services/vehicle-branding"],
+      ["Retail Branding", "/services/retail-branding"],
+      ["BTL Activation", "/services/btl-activation"],
+    ].map(([name, path], index) => ({ "@type": "ListItem", position: index + 1, name, url: `https://thebrandadvertising.com${path}` })),
+  }],
+  "/contact": ["Contact The Brand Advertising | Plan a Campaign", "Tell TBA your target market, advertising format, audience and dates to start a scoped vehicle branding, retail or activation campaign discussion.", "ContactPage"],
 };
 
 export default function App() {
@@ -41,7 +51,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-cream">
       <LoadingScreen show={loading} route={location.pathname} />
-      {seo && <Seo title={seo[0]} description={seo[1]} path={normalizedPath} pageType={seo[2]} />}
+      {seo && <Seo title={seo[0]} description={seo[1]} path={normalizedPath} pageType={seo[2]} schema={seo[3]} />}
       <MotionExperience />
       <ScrollToTop />
       <Navbar />
