@@ -66,6 +66,7 @@ for (const url of urls) {
   const pageSchemas = [];
   let hasOrganization = false;
   let hasWebSite = false;
+  let hasDistinctFounder = false;
   let hasCampaignItems = false;
   let hasService = false;
   let hasBreadcrumbs = false;
@@ -76,6 +77,12 @@ for (const url of urls) {
       const nodes = parsed["@graph"] || [parsed];
       hasOrganization ||= nodes.some((node) => node["@type"] === "Organization");
       hasWebSite ||= nodes.some((node) => node["@type"] === "WebSite");
+      const organization = nodes.find((node) => node["@type"] === "Organization");
+      const founder = nodes.find((node) => node["@type"] === "Person" && node.name === "Dimcy Aggarwal");
+      hasDistinctFounder ||= organization?.founder?.["@id"] === founder?.["@id"]
+        && founder?.worksFor?.["@id"] === organization?.["@id"]
+        && !organization?.sameAs?.includes("https://www.linkedin.com/in/dimcy-aggarwal-aa1a621b7/")
+        && founder?.sameAs?.includes("https://www.linkedin.com/in/dimcy-aggarwal-aa1a621b7/");
       hasCampaignItems ||= nodes.some((node) => node["@type"] === "ItemList" && node.name === "The Brand Advertising campaign work");
       hasService ||= nodes.some((node) => node["@type"] === "Service");
       hasBreadcrumbs ||= nodes.some((node) => node["@type"] === "BreadcrumbList");
@@ -93,6 +100,7 @@ for (const url of urls) {
   if (pageSchemas[0]?.url !== url) errors.push(`${url}: WebPage schema URL is ${pageSchemas[0]?.url || "missing"}`);
   if (!hasOrganization) errors.push(`${url}: Organization schema missing`);
   if (!hasWebSite) errors.push(`${url}: WebSite schema missing`);
+  if (!hasDistinctFounder) errors.push(`${url}: founder must be a distinct Person linked to the Organization`);
   if (path === "/campaigns" && !hasCampaignItems) errors.push(`${url}: campaign ItemList schema missing`);
   if (path.startsWith("/services/") && (!hasService || !hasBreadcrumbs || !hasFaq)) {
     errors.push(`${url}: service, breadcrumb or FAQ schema missing`);
@@ -109,6 +117,17 @@ if (urlSet.size !== urls.length) errors.push("sitemap.xml: duplicate URL entries
 const robots = await readFile("public/robots.txt", "utf8");
 if (!robots.includes(`${siteUrl}/sitemap.xml`)) errors.push("robots.txt: sitemap URL missing");
 if (/Disallow:\s*\//i.test(robots)) errors.push("robots.txt: site-wide crawl blocking rule found");
+
+const llms = await readFile("public/llms.txt", "utf8");
+const publishedLlms = await readFile("dist/llms.txt", "utf8");
+if (publishedLlms !== llms) errors.push("llms.txt: generated file differs from public source");
+if (!llms.startsWith("# The Brand Advertising\n\n> ")) errors.push("llms.txt: missing site title or summary");
+const llmsLinks = [...llms.matchAll(/\[[^\]]+\]\((https:\/\/[^)]+)\)/g)].map((match) => match[1]);
+for (const url of urls) {
+  if (!llmsLinks.includes(url)) errors.push(`llms.txt: canonical URL missing (${url})`);
+}
+if (new Set(llmsLinks).size !== llmsLinks.length) errors.push("llms.txt: duplicate links found");
+if (llmsLinks.some((url) => !urlSet.has(url))) errors.push("llms.txt: link not found in sitemap");
 
 const routeSources = [
   ["src/pages/Home.jsx", /<motion\.h1/],

@@ -16,8 +16,8 @@ import MotionExperience from "./components/MotionExperience";
 import Seo from "./components/Seo";
 
 const pageSeo = {
-  "/": ["Outdoor Advertising Agency in India | The Brand Advertising", "Plan outdoor advertising, vehicle branding, retail campaigns and on-ground activations with The Brand Advertising. Share your markets and campaign goals.", "WebPage"],
-  "/about": ["About The Brand Advertising | Outdoor & Brand Activation", "Learn how The Brand Advertising plans vehicle branding, retail campaigns and on-ground activations across India. Meet the team and explore our work.", "AboutPage"],
+  "/": ["The Brand Advertising | Outdoor Advertising Agency in India", "Plan outdoor advertising, vehicle branding, retail campaigns and on-ground activations with The Brand Advertising. Share your markets and campaign goals.", "WebPage"],
+  "/about": ["The Brand Advertising | Agency & Founder Dimcy Aggarwal", "Meet The Brand Advertising and founder Dimcy Aggarwal. Learn about vehicle branding, retail visibility and on-ground activation work across India.", "AboutPage"],
   "/services": ["Outdoor Advertising & Brand Activation Services | TBA", "Compare vehicle branding, retail branding and on-ground activation formats. Explore campaign options and request a plan for your target markets.", "CollectionPage", {
     "@type": "ItemList",
     name: "The Brand Advertising services",

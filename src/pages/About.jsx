@@ -77,8 +77,9 @@ export default function About() {
                 />
               </div>
               <p className="text-xs uppercase tracking-[0.25em] text-brand-deep mt-7 mb-2">Founder</p>
-              <h2 className="font-display text-3xl font-semibold">Dimcy Aggarwal</h2>
+              <h2 id="dimcy-aggarwal" className="font-display text-3xl font-semibold">Dimcy Aggarwal</h2>
               <p className="text-charcoal-soft/70 mt-2">Marketing & Brand Strategy</p>
+              <a href="https://www.linkedin.com/in/dimcy-aggarwal-aa1a621b7/" target="_blank" rel="noopener noreferrer" className="inline-block mt-4 text-brand-red font-medium underline underline-offset-4">Dimcy Aggarwal on LinkedIn</a>
               <p className="text-charcoal-soft/75 leading-relaxed mt-5">
                 Building memorable brands through thoughtful strategy, strong creative
                 direction and high-impact outdoor advertising.

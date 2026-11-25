@@ -4,8 +4,8 @@ import { render } from "../.ssr/entry-server.js";
 
 const siteUrl = "https://thebrandadvertising.com";
 const pages = [
-  ["/", "Outdoor Advertising Agency in India | The Brand Advertising", "Plan outdoor advertising, vehicle branding, retail campaigns and on-ground activations with The Brand Advertising. Share your markets and campaign goals."],
-  ["/about", "About The Brand Advertising | Outdoor & Brand Activation", "Learn how The Brand Advertising plans vehicle branding, retail campaigns and on-ground activations across India. Meet the team and explore our work."],
+  ["/", "The Brand Advertising | Outdoor Advertising Agency in India", "Plan outdoor advertising, vehicle branding, retail campaigns and on-ground activations with The Brand Advertising. Share your markets and campaign goals."],
+  ["/about", "The Brand Advertising | Agency & Founder Dimcy Aggarwal", "Meet The Brand Advertising and founder Dimcy Aggarwal. Learn about vehicle branding, retail visibility and on-ground activation work across India."],
   ["/services", "Outdoor Advertising & Brand Activation Services | TBA", "Compare vehicle branding, retail branding and on-ground activation formats. Explore campaign options and request a plan for your target markets."],
   ["/services/auto-hood-branding", "Auto Hood Branding in Delhi NCR | The Brand Advertising", "Explore auto hood branding services in Delhi NCR with The Brand Advertising. Reach local audiences through customized auto-rickshaw advertising campaigns."],
   ["/services/cab-branding", "Cab Branding & Taxi Advertising in India | TBA", "Explore cab branding formats, market planning, production and installation. Share target cities, dates and a fleet brief for a scoped campaign proposal."],
@@ -22,7 +22,7 @@ const schemaPattern = /<script\b[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?
 const routeSchemaPattern = /<script\b[^>]*data-prerender-schema="true"[^>]*>([\s\S]*?)<\/script>/;
 const homeSchema = JSON.parse(template.match(schemaPattern)?.[1] || "{}");
 const sharedSchema = (homeSchema["@graph"] || []).filter((node) =>
-  ["Organization", "WebSite"].includes(node["@type"]),
+  ["Organization", "Person", "WebSite"].includes(node["@type"]),
 );
 const escapeAttribute = (value) => value.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
 const escapeText = (value) => value.replace(/&/g, "&amp;").replace(/</g, "&lt;");

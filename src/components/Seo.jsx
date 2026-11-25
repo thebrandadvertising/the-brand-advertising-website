@@ -69,7 +69,7 @@ export default function Seo({ title, description, path = "/", schema, pageType =
       try {
         const existing = JSON.parse(script.textContent);
         sharedGraph = (existing["@graph"] || []).filter((node) =>
-          ["Organization", "WebSite"].includes(node["@type"]),
+          ["Organization", "Person", "WebSite"].includes(node["@type"]),
         );
       } catch {
         sharedGraph = [];
