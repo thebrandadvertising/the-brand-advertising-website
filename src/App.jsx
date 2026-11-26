@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { Suspense, lazy, useEffect, useState } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -14,6 +14,8 @@ import Coverage from "./pages/Coverage";
 import SocialButtons from "./components/SocialButtons";
 import MotionExperience from "./components/MotionExperience";
 import Seo from "./components/Seo";
+
+const EnquiryPopup = lazy(() => import("./components/EnquiryPopup.jsx"));
 
 const pageSeo = {
   "/": ["The Brand Advertising | Outdoor Advertising Agency in India", "Plan outdoor advertising, vehicle branding, retail campaigns and on-ground activations with The Brand Advertising. Share your markets and campaign goals.", "WebPage"],
@@ -34,6 +36,7 @@ const pageSeo = {
 
 export default function App() {
   const [loading, setLoading] = useState(false);
+  const [loadEnquiryPopup, setLoadEnquiryPopup] = useState(false);
   const location = useLocation();
   const normalizedPath = location.pathname.replace(/\/+$/, "") || "/";
   const seo = pageSeo[normalizedPath];
@@ -46,6 +49,16 @@ export default function App() {
       window.sessionStorage.setItem("tba-intro-seen", "true");
     }, 950);
     return () => clearTimeout(t);
+  }, []);
+
+  useEffect(() => {
+    try {
+      if (window.sessionStorage.getItem("tba-enquiry-popup-dismissed")) return undefined;
+    } catch {
+      // Continue without session persistence when storage is unavailable.
+    }
+    const timer = window.setTimeout(() => setLoadEnquiryPopup(true), 5500);
+    return () => window.clearTimeout(timer);
   }, []);
 
   return (
@@ -68,6 +81,7 @@ export default function App() {
       </Routes>
       <Footer />
       <SocialButtons />
+      <Suspense fallback={null}>{loadEnquiryPopup && <EnquiryPopup />}</Suspense>
     </div>
   );
 }
