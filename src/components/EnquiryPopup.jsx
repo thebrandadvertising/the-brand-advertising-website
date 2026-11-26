@@ -1,9 +1,10 @@
-import { Suspense, lazy, useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { ArrowRight, BriefcaseBusiness, Building2, CheckCircle2, LoaderCircle, Mail, MapPin, MessageCircle, Phone, UserRound, X } from "lucide-react";
 import "./enquiry-popup.css";
+import AnimatedTbaRepresentative from "./AnimatedTbaRepresentative.jsx";
 
-const AnimatedTbaRepresentative = lazy(() => import("./AnimatedTbaRepresentative.jsx"));
 const DISMISSED_KEY = "tba-enquiry-popup-dismissed";
+const EXIT_DURATION = 280;
 const CONTACT_ENDPOINT = "https://formsubmit.co/ajax/admin@thebrandadvertising.in";
 const FORM_SOURCE_URL = "https://thebrandadvertising.com/";
 const SERVICES = ["Auto Hood Branding", "Vehicle Branding", "Cab Branding", "Retail Branding", "BTL Activation"];
@@ -17,6 +18,8 @@ const fields = [
 
 export default function EnquiryPopup() {
   const [open, setOpen] = useState(true);
+  const [closing, setClosing] = useState(false);
+  const [skipEntrance, setSkipEntrance] = useState(false);
   const [form, setForm] = useState({ name: "", company: "", email: "", phone: "", service: "", location: "", message: "" });
   const [error, setError] = useState("");
   const [sent, setSent] = useState(false);
@@ -27,8 +30,18 @@ export default function EnquiryPopup() {
 
   const dismiss = useCallback(() => {
     try { window.sessionStorage.setItem(DISMISSED_KEY, "true"); } catch { /* storage can be unavailable in private browsing */ }
-    setOpen(false);
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setOpen(false);
+    } else {
+      setClosing(true);
+    }
   }, []);
+
+  useEffect(() => {
+    if (!closing) return undefined;
+    const timer = window.setTimeout(() => setOpen(false), EXIT_DURATION);
+    return () => window.clearTimeout(timer);
+  }, [closing]);
 
   useEffect(() => {
     if (!open) return undefined;
@@ -43,11 +56,15 @@ export default function EnquiryPopup() {
         dismiss();
       }
       if (event.key !== "Tab" || !dialogRef.current) return;
+      setSkipEntrance(true);
       const focusable = [...dialogRef.current.querySelectorAll("button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), a[href]")];
       if (!focusable.length) return;
       const first = focusable[0];
       const last = focusable[focusable.length - 1];
-      if (event.shiftKey && document.activeElement === first) {
+      if (!dialogRef.current.contains(document.activeElement)) {
+        event.preventDefault();
+        (event.shiftKey ? last : first).focus();
+      } else if (event.shiftKey && document.activeElement === first) {
         event.preventDefault();
         last.focus();
       } else if (!event.shiftKey && document.activeElement === last) {
@@ -70,7 +87,7 @@ export default function EnquiryPopup() {
 
   async function submit(event) {
     event.preventDefault();
-    if (submitting) return;
+    if (submitting || closing) return;
     if ([form.name, form.email, form.phone, form.message].some((value) => !value.trim())) {
       setError("Please complete your name, email, phone number and project requirements.");
       return;
@@ -125,22 +142,19 @@ export default function EnquiryPopup() {
   if (!open) return null;
 
   return (
-    <div className="tba-popup-backdrop" onMouseDown={(event) => { if (event.target === event.currentTarget) dismiss(); }}>
+    <div className="tba-popup-backdrop" data-closing={closing} data-skip-entrance={skipEntrance} style={{ "--tba-exit-time": `${EXIT_DURATION}ms` }} onMouseDown={(event) => { if (event.target === event.currentTarget) dismiss(); }}>
       <section className="tba-popup-card" ref={dialogRef} role="dialog" aria-modal="true" aria-labelledby="tba-popup-title" aria-describedby="tba-popup-description">
         <button ref={closeRef} type="button" className="tba-popup-close" onClick={dismiss} aria-label="Close enquiry popup"><X aria-hidden="true" size={22} strokeWidth={2.5} /></button>
 
         <aside className="tba-popup-character" aria-label="The Brand Advertising welcome">
-          <div className="tba-popup-character-glow" aria-hidden="true" />
           <p className="tba-popup-kicker">The Brand Advertising</p>
-          <p className="tba-popup-welcome">Let’s Grow<br />Your Brand<br /><em>Together!</em></p>
+          <p className="tba-popup-welcome">Let’s grow your brand <em>together.</em></p>
           <div className="tba-popup-character-stage" aria-hidden="true">
-            <Suspense fallback={<div className="tba-popup-character-placeholder" />}><AnimatedTbaRepresentative /></Suspense>
+            <AnimatedTbaRepresentative />
           </div>
-          <p className="tba-popup-character-caption">Ideas in motion. Built for attention.</p>
         </aside>
 
         <div className="tba-popup-form-panel">
-          <p className="tba-popup-eyebrow">Start a conversation</p>
           <h2 id="tba-popup-title">Get in Touch with The Brand Advertising</h2>
           <p className="tba-popup-description" id="tba-popup-description">Tell us about your requirements and let’s create something extraordinary.</p>
 

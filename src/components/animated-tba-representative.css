@@ -1,11 +1,46 @@
-.tba-guide-art { display:block; width:100%; height:100%; overflow:visible; }
-.tba-guide-body { transform-origin:220px 485px; animation:tba-guide-breathe 4.2s ease-in-out infinite; }
-.tba-guide-wave { transform-box:fill-box; transform-origin:96% 35%; animation:tba-guide-wave 3.8s ease-in-out infinite; }
-.tba-guide-eyes { transform-box:fill-box; transform-origin:center; animation:tba-guide-blink 5.5s ease-in-out infinite; }
-.tba-guide-spark { opacity:.65; animation:tba-guide-sparkle 2.8s ease-in-out infinite; }
-.tba-guide-spark-two { animation-delay:1.3s; }
-@keyframes tba-guide-breathe { 0%,100% {transform:translateY(0)} 50% {transform:translateY(-4px)} }
-@keyframes tba-guide-wave { 0%,66%,100% {transform:rotate(0)} 72% {transform:rotate(-7deg)} 78% {transform:rotate(4deg)} 84% {transform:rotate(-5deg)} 90% {transform:rotate(0)} }
-@keyframes tba-guide-blink { 0%,44%,47%,100% {transform:scaleY(1)} 45%,46% {transform:scaleY(.08)} }
-@keyframes tba-guide-sparkle { 0%,100% {opacity:.3;transform:scale(.85)} 50% {opacity:.9;transform:scale(1.08)} }
-@media (prefers-reduced-motion:reduce) { .tba-guide-body,.tba-guide-wave,.tba-guide-eyes,.tba-guide-spark { animation:none!important } }
+.tba-guide-art {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.tba-guide-body {
+  transform-origin: 220px 485px;
+  animation: tba-guide-breathe 4.1s 350ms ease-in-out both;
+}
+
+.tba-guide-wave {
+  transform-box: fill-box;
+  transform-origin: 96% 35%;
+  animation: tba-guide-wave 1.3s 710ms ease-in-out both;
+}
+
+.tba-guide-eyes {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: tba-guide-blink 260ms 2.55s ease-in-out both;
+}
+
+@keyframes tba-guide-breathe {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-3px) rotate(.5deg); }
+}
+
+@keyframes tba-guide-wave {
+  0%, 100% { transform: rotate(0); }
+  35% { transform: rotate(-9deg); }
+  66% { transform: rotate(-3deg); }
+  80% { transform: rotate(-5deg); }
+}
+
+@keyframes tba-guide-blink {
+  0%, 100% { transform: scaleY(1); }
+  46%, 54% { transform: scaleY(.12); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tba-guide-body, .tba-guide-wave, .tba-guide-eyes {
+    animation: none;
+  }
+}
